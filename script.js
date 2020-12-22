@@ -9,10 +9,8 @@ $(document).ready(function () {
 
   // JAVASCRIPT VARIABLES
   var intNumImages = 30; // How many images to get in ajax call to choose from at random
-  var strSearchTermArray = ["animals", "people", "cars", "cake"]; // Temporary list of random search terms
-  var strSearchTermIndex = Math.floor(
-    Math.random() * strSearchTermArray.length
-  ); // Generate random strsearchTermArray index
+  var strSearchTermArray = ["cozy", "morning", "coffee", "calm"]; // Temporary list of random search terms
+  var strSearchTermIndex = Math.floor(Math.random() * strSearchTermArray.length); // Generate random strsearchTermArray index
   var strSearchTerm = strSearchTermArray[strSearchTermIndex]; // pick one string from array
   var header = "Digital Coffee: Your Daily Dose of ";
 
@@ -31,14 +29,12 @@ $(document).ready(function () {
       numImages = 0;
       throw numImagesTooSmallException;
     }
-
     // Build queryURL from base API URL and parameters
     var queryURL =
       "https://api.pexels.com/v1/search?query=" +
       searchTerm +
       "&per_page=" +
       numImages;
-
     // Actual API call
     $.ajax({
       url: queryURL,
@@ -51,10 +47,12 @@ $(document).ready(function () {
       // Choose an image at random from 0 to numImages parameter
       randomNumber = Math.floor(Math.random() * response.photos.length);
 
-      // May want to parameterize "portrait" to select from an array of available orientations
-      $("body").append(
-        $("<img>").attr("src", response.photos[randomNumber].src.portrait)
-      );
+      // May want to parameterize image orientation selection, currently landscape.
+      $("body").css("background-image", "url(" + response.photos[randomNumber].src.landscape + ")");
+      $("body").css("background-size", "cover");
+      $("body").css("background-repeat", "no-repeat");
+      $("body").css("background-position", "center");
+      $("body").css("background-attachment", "fixed");
     });
   }
 
