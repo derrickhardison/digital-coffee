@@ -1,0 +1,15 @@
+.card-header{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.search-quote, .search-location{
+    font-size: 20px;
+    font-weight: bold;
+}
+.card{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+}
