@@ -4,15 +4,21 @@
 $(document).ready(function () {
   // DOM VARIABLES
   var headerEL = $("#header");
-  var quoteEl = $("#quote-box");
-  var authorEl = $("#author-box");
+  var quoteEl = $("#quote");
+  var authorEl = $("#author");
+  
 
   // JAVASCRIPT VARIABLES
+  var quote = "";
+  var author = "";
+  var quoteType = "";
+
   var intNumImages = 30; // How many images to get in ajax call to choose from at random
   var strSearchTermArray = ["cozy", "morning", "coffee", "calm"]; // Temporary list of random search terms
-  var strSearchTermIndex = Math.floor(Math.random() * strSearchTermArray.length); // Generate random strsearchTermArray index
+  var strSearchTermIndex = Math.floor(
+    Math.random() * strSearchTermArray.length
+  ); // Generate random strsearchTermArray index
   var strSearchTerm = strSearchTermArray[strSearchTermIndex]; // pick one string from array
-  var header = "Digital Coffee: Your Daily Dose of ";
 
   // FUNCTION DEFINTIONS
   /**
@@ -48,7 +54,10 @@ $(document).ready(function () {
       randomNumber = Math.floor(Math.random() * response.photos.length);
 
       // May want to parameterize image orientation selection, currently landscape.
-      $("body").css("background-image", "url(" + response.photos[randomNumber].src.landscape + ")");
+      $("body").css(
+        "background-image",
+        "url(" + response.photos[randomNumber].src.landscape + ")"
+      );
       $("body").css("background-size", "cover");
       $("body").css("background-repeat", "no-repeat");
       $("body").css("background-position", "center");
@@ -66,11 +75,32 @@ $(document).ready(function () {
       },
     }).then(function (response) {
       quote = response.joke;
-      quoteEl.text(quote);
-
-      authorEl.text("    - Dad");
-      headerEL.text(header + "Dad Jokes");
+      author = "Dad";
+      quoteType = "Dad Jokes";
+      renderQuote();
     });
+  }
+
+  // gets array of inspirational quotes  can we get random or do we need to use Math.random?
+  function inspirationalQuote() {
+    $.ajax({
+      url: "https://type.fit/api/quotes",
+      method: "GET",
+    }).then(function (response) {
+      response = JSON.parse(response);
+      randomIndex = Math.floor(Math.random() * response.length);
+      quote = response[randomIndex].text;
+      author = response[randomIndex].author;
+      quoteType = "Inspiration";
+      renderQuote();
+    });
+  }
+
+  // render quotes on teh page to the 
+  function renderQuote() {
+    quoteEl.text(quote);
+    authorEl.text("- " + author);
+    headerEL.text("Digital Coffee: Your Daily Dose of " + quoteType);
   }
 
   // FUNCTION CALLS
@@ -78,6 +108,7 @@ $(document).ready(function () {
   // This function appends an element to the body for now due to asynchronous return of .then
   getPexelsImage(strSearchTerm, intNumImages);
   dadJoke();
+  // inspirationalQuote();
 
   // EVENT LISTENERS
 });
