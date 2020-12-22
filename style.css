@@ -1,3 +1,20 @@
+header{
+    width: 100%;
+    padding: 20px; 
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+}
+h1{
+    font-size: 500%;
+    color: oldlace;
+}
+body{
+    background: url("./images/city.jpg.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .card-header{
     font-weight: bold;
     font-size: 30px;
@@ -11,5 +28,5 @@
     position: absolute;
     top: 0;
     right: 0;
-    margin: 20px;
+    margin: 150px;
 }
