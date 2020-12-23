@@ -7,17 +7,22 @@ $(document).ready(function () {
     $("#currentDay").append(timeDate);
   // DOM VARIABLES
   var headerEL = $("#header");
-  var quoteEl = $("#quote-box");
-  var authorEl = $("#author-box");
+  var quoteEl = $("#quote");
+  var authorEl = $("#author");
+  var userInputQuoteTypeEl = $("#user-pref-quote-type");
 
   // JAVASCRIPT VARIABLES
+  var quote = "";
+  var author = "";
+  var quoteOptions = ["Dad Jokes", "Inspiration"]; // Can we dynamically add these to the drop-down list on the user settings?
+  var userPreferences = { quoteType: "Inspiration" };
+
   var intNumImages = 30; // How many images to get in ajax call to choose from at random
-  var strSearchTermArray = ["animals", "people", "cars", "cake"]; // Temporary list of random search terms
+  var strSearchTermArray = ["cozy", "morning", "coffee", "calm"]; // Temporary list of random search terms
   var strSearchTermIndex = Math.floor(
     Math.random() * strSearchTermArray.length
   ); // Generate random strsearchTermArray index
   var strSearchTerm = strSearchTermArray[strSearchTermIndex]; // pick one string from array
-  var header = "Digital Coffee: Your Daily Dose of ";
 
   // FUNCTION DEFINTIONS
   //Weather Generator
@@ -65,14 +70,12 @@ $(document).ready(function () {
       numImages = 0;
       throw numImagesTooSmallException;
     }
-
     // Build queryURL from base API URL and parameters
     var queryURL =
       "https://api.pexels.com/v1/search?query=" +
       searchTerm +
       "&per_page=" +
       numImages;
-
     // Actual API call
     $.ajax({
       url: queryURL,
@@ -85,10 +88,15 @@ $(document).ready(function () {
       // Choose an image at random from 0 to numImages parameter
       randomNumber = Math.floor(Math.random() * response.photos.length);
 
-      // May want to parameterize "portrait" to select from an array of available orientations
-      $("body").append(
-        $("<img>").attr("src", response.photos[randomNumber].src.portrait)
+      // May want to parameterize image orientation selection, currently landscape.
+      $("body").css(
+        "background-image",
+        "url(" + response.photos[randomNumber].src.landscape + ")"
       );
+      $("body").css("background-size", "cover");
+      $("body").css("background-repeat", "no-repeat");
+      $("body").css("background-position", "center");
+      $("body").css("background-attachment", "fixed");
     });
   }
 
@@ -102,18 +110,58 @@ $(document).ready(function () {
       },
     }).then(function (response) {
       quote = response.joke;
-      quoteEl.text(quote);
-
-      authorEl.text("    - Dad");
-      headerEL.text(header + "Dad Jokes");
+      author = "Dad";
+      renderText();
     });
+  }
+
+  // gets array of inspirational quotes  can we get random or do we need to use Math.random?
+  function inspirationalQuote() {
+    $.ajax({
+      url: "https://type.fit/api/quotes",
+      method: "GET",
+    }).then(function (response) {
+      response = JSON.parse(response);
+      randomIndex = Math.floor(Math.random() * response.length);
+      quote = response[randomIndex].text;
+      author = response[randomIndex].author;
+      renderText();
+    });
+  }
+
+  // render quotes on the page to the
+  function renderText() {
+    quoteEl.text(quote);
+    authorEl.text("- " + author);
+    headerEL.text(
+      "Digital Coffee: Your Daily Dose of " + userPreferences.quoteType
+    );
+  }
+
+  // switch statement to display quote type based on user preferences/settings
+  function renderQuote() {
+    switch (userPreferences.quoteType) {
+      case "Dad Jokes":
+        dadJoke();
+        break;
+      case "Inspiration":
+        inspirationalQuote();
+        break;
+    }
   }
 
   // FUNCTION CALLS
 
   // This function appends an element to the body for now due to asynchronous return of .then
   getPexelsImage(strSearchTerm, intNumImages);
-  dadJoke();
+  renderQuote();
+
 
   // EVENT LISTENERS
+
+  // when user changes settings for quote types
+  userInputQuoteTypeEl.change(function () {
+    userPreferences.quoteType = userInputQuoteTypeEl.val();
+    renderQuote();
+  });
 });
