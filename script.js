@@ -6,12 +6,13 @@ $(document).ready(function () {
   var headerEL = $("#header");
   var quoteEl = $("#quote");
   var authorEl = $("#author");
-  
+  var userInputQuoteTypeEl = $("#user-pref-quote-type");
 
   // JAVASCRIPT VARIABLES
   var quote = "";
   var author = "";
-  var quoteType = "";
+  var quoteOptions = ["Dad Jokes", "Inspiration"]; // Can we dynamically add these to the drop-down list on the user settings?
+  var userPreferences = { quoteType: "Inspiration" };
 
   var intNumImages = 30; // How many images to get in ajax call to choose from at random
   var strSearchTermArray = ["cozy", "morning", "coffee", "calm"]; // Temporary list of random search terms
@@ -20,7 +21,7 @@ $(document).ready(function () {
   ); // Generate random strsearchTermArray index
   var strSearchTerm = strSearchTermArray[strSearchTermIndex]; // pick one string from array
 
-  // FUNCTION DEFINTIONS
+  // FUNCTION DEFINITIONS
   /**
    *  getPexelsImage(searchTerm, numImages)
    *  searchTerm: A string specifying the type of images to return
@@ -76,8 +77,7 @@ $(document).ready(function () {
     }).then(function (response) {
       quote = response.joke;
       author = "Dad";
-      quoteType = "Dad Jokes";
-      renderQuote();
+      renderText();
     });
   }
 
@@ -91,24 +91,43 @@ $(document).ready(function () {
       randomIndex = Math.floor(Math.random() * response.length);
       quote = response[randomIndex].text;
       author = response[randomIndex].author;
-      quoteType = "Inspiration";
-      renderQuote();
+      renderText();
     });
   }
 
-  // render quotes on teh page to the 
-  function renderQuote() {
+  // render quotes on the page to the
+  function renderText() {
     quoteEl.text(quote);
     authorEl.text("- " + author);
-    headerEL.text("Digital Coffee: Your Daily Dose of " + quoteType);
+    headerEL.text(
+      "Digital Coffee: Your Daily Dose of " + userPreferences.quoteType
+    );
+  }
+
+  // switch statement to display quote type based on user preferences/settings
+  function renderQuote() {
+    switch (userPreferences.quoteType) {
+      case "Dad Jokes":
+        dadJoke();
+        break;
+      case "Inspiration":
+        inspirationalQuote();
+        break;
+    }
   }
 
   // FUNCTION CALLS
 
   // This function appends an element to the body for now due to asynchronous return of .then
   getPexelsImage(strSearchTerm, intNumImages);
-  dadJoke();
-  // inspirationalQuote();
+  renderQuote();
+
 
   // EVENT LISTENERS
+
+  // when user changes settings for quote types
+  userInputQuoteTypeEl.change(function () {
+    userPreferences.quoteType = userInputQuoteTypeEl.val();
+    renderQuote();
+  });
 });
