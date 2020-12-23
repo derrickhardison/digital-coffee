@@ -3,8 +3,8 @@
 ///////////////
 $(document).ready(function () {
   //moment.js variable
-  var timeDate = moment().format('MMMM Do YYYY, h:mm:ss a');
-    $("#currentDay").append(timeDate);
+  // var timeDate = moment().format('MMMM Do YYYY, h:mm:ss a');
+  //   $("#currentDay").append(timeDate);
   // DOM VARIABLES
   var headerEL = $("#header");
   var quoteEl = $("#quote");
