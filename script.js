@@ -2,6 +2,9 @@
 // script.js //
 ///////////////
 $(document).ready(function () {
+  //moment.js variable
+  var timeDate = moment().format('MMMM Do YYYY, h:mm:ss a');
+    $("#currentDay").append(timeDate);
   // DOM VARIABLES
   var headerEL = $("#header");
   var quoteEl = $("#quote-box");
@@ -17,6 +20,37 @@ $(document).ready(function () {
   var header = "Digital Coffee: Your Daily Dose of ";
 
   // FUNCTION DEFINTIONS
+  //Weather Generator
+  $("#weather-button").on("click", function() { //Search Bar/Button for Weather
+    var searchTerm = $("#weather-search").val();
+    $("#weather-search").val("");
+    weatherFunction(searchTerm);
+  });
+  //Function w/ AJAX and Openweather API
+  function weatherFunction(searchTerm) {
+    $.ajax({
+      url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm +"&appid=366ea93a291baf148a642f8cd8243771&units=imperial",
+      method: "GET"
+    }).then(function(data) {
+      //Clearing out previous search after refresh
+  
+    $("#today-cast").empty();
+
+    var title = $("<h3>").addClass("card-title").text(data.name + " (" + new Date().toLocaleDateString() + ")");
+    var img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+    
+    var card = $("<div>").addClass("card");
+    var cardBody = $("<div>").addClass("card-body");
+    var cityTemp = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp +  "°F");
+    var cityWind = $("<p>").addClass("card-text").text("Wind speed: " + data.wind.speed + "MPH");
+    var cityHumid = $("<p>").addClass("card-text").text("Humidity: " + data.main.humidity + "%");
+    //Adding icon image to weather response
+    title.append(img);
+    cardBody.append(title, cityTemp, cityHumid, cityWind);
+    card.append(cardBody);
+    $("#today-cast").append(card);
+    });
+  }
   /**
    *  getPexelsImage(searchTerm, numImages)
    *  searchTerm: A string specifying the type of images to return
