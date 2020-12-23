@@ -15,7 +15,10 @@ $(document).ready(function () {
   var quote = "";
   var author = "";
   var quoteOptions = ["Dad Jokes", "Inspiration"]; // Can we dynamically add these to the drop-down list on the user settings?
-  var userPreferences = { quoteType: "Inspiration" };
+  var userPreferences = {
+    quoteType: "Inspiration",
+    location: { city: "Atlanta", latitudue: "", longitude: "" },
+  };
 
   var intNumImages = 30; // How many images to get in ajax call to choose from at random
   var strSearchTermArray = ["cozy", "morning", "coffee", "calm"]; // Temporary list of random search terms
@@ -25,35 +28,44 @@ $(document).ready(function () {
   var strSearchTerm = strSearchTermArray[strSearchTermIndex]; // pick one string from array
 
   // FUNCTION DEFINTIONS
-  //Weather Generator
-  $("#weather-button").on("click", function() { //Search Bar/Button for Weather
-    var searchTerm = $("#weather-search").val();
-    $("#weather-search").val("");
-    weatherFunction(searchTerm);
-  });
+
   //Function w/ AJAX and Openweather API
   function weatherFunction(searchTerm) {
     $.ajax({
-      url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm +"&appid=366ea93a291baf148a642f8cd8243771&units=imperial",
-      method: "GET"
-    }).then(function(data) {
+      url:
+        "https://api.openweathermap.org/data/2.5/weather?q=" +
+        searchTerm +
+        "&appid=366ea93a291baf148a642f8cd8243771&units=imperial",
+      method: "GET",
+    }).then(function (data) {
       //Clearing out previous search after refresh
-  
-    $("#today-cast").empty();
 
-    var title = $("<h3>").addClass("card-title").text(data.name + " (" + new Date().toLocaleDateString() + ")");
-    var img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
-    
-    var card = $("<div>").addClass("card");
-    var cardBody = $("<div>").addClass("card-body");
-    var cityTemp = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp +  "°F");
-    var cityWind = $("<p>").addClass("card-text").text("Wind speed: " + data.wind.speed + "MPH");
-    var cityHumid = $("<p>").addClass("card-text").text("Humidity: " + data.main.humidity + "%");
-    //Adding icon image to weather response
-    title.append(img);
-    cardBody.append(title, cityTemp, cityHumid, cityWind);
-    card.append(cardBody);
-    $("#today-cast").append(card);
+      $("#today-cast").empty();
+
+      var title = $("<h3>")
+        .addClass("card-title")
+        .text(data.name + " (" + new Date().toLocaleDateString() + ")");
+      var img = $("<img>").attr(
+        "src",
+        "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
+      );
+
+      var card = $("<div>").addClass("card");
+      var cardBody = $("<div>").addClass("card-body");
+      var cityTemp = $("<p>")
+        .addClass("card-text")
+        .text("Temperature: " + data.main.temp + "°F");
+      var cityWind = $("<p>")
+        .addClass("card-text")
+        .text("Wind speed: " + data.wind.speed + "MPH");
+      var cityHumid = $("<p>")
+        .addClass("card-text")
+        .text("Humidity: " + data.main.humidity + "%");
+      //Adding icon image to weather response
+      title.append(img);
+      cardBody.append(title, cityTemp, cityHumid, cityWind);
+      card.append(cardBody);
+      $("#today-cast").append(card);
     });
   }
   /**
@@ -125,6 +137,11 @@ $(document).ready(function () {
       randomIndex = Math.floor(Math.random() * response.length);
       quote = response[randomIndex].text;
       author = response[randomIndex].author;
+      if (response[randomIndex].author) {
+        author = response[randomIndex].author;
+      } else {
+        author = "Anonymous";
+      }
       renderText();
     });
   }
@@ -149,19 +166,40 @@ $(document).ready(function () {
         break;
     }
   }
+  // function to initialize user preferences from local storage
+  function initPreferences() {
+    let storedPreferences = JSON.parse(localStorage.getItem("storedPreferences"));
+    if (storedPreferences){
+      userPreferences = storedPreferences;
+    }
+  }
+  
+  // function to store preferences to local storage
+  function storePreferences(){
+    localStorage.setItem("storedPreferences", JSON.stringify(userPreferences));
+  }
 
   // FUNCTION CALLS
 
   // This function appends an element to the body for now due to asynchronous return of .then
+  initPreferences();
   getPexelsImage(strSearchTerm, intNumImages);
   renderQuote();
-
 
   // EVENT LISTENERS
 
   // when user changes settings for quote types
   userInputQuoteTypeEl.change(function () {
     userPreferences.quoteType = userInputQuoteTypeEl.val();
+    storePreferences();
     renderQuote();
+  });
+
+  //Weather Generator
+  $("#weather-button").on("click", function () {
+    //Search Bar/Button for Weather
+    var searchTerm = $("#weather-search").val();
+    $("#weather-search").val("");
+    weatherFunction(searchTerm);
   });
 });
