@@ -30,7 +30,17 @@ $(document).ready(function () {
   // FUNCTION DEFINTIONS
 
   //Function w/ AJAX and Openweather API
+  $("#weather-button").on("click", function(event) {
+    event.preventDefault();
+    var searchTerm = $("#weather-search").val();
+    console.log("You Clicked");
+
+    $("#weather-search").val("");
+    weatherFunction(searchTerm);
+  });
+
   function weatherFunction(searchTerm) {
+
     $.ajax({
       url:
         "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -42,25 +52,17 @@ $(document).ready(function () {
 
       $("#today-cast").empty();
 
-      var title = $("<h3>")
-        .addClass("card-title")
-        .text(data.name + " (" + new Date().toLocaleDateString() + ")");
+      var title = $("<h3>").addClass("d-inline px-3").text(data.name + " (" + new Date().toLocaleDateString() + ")");
       var img = $("<img>").attr(
         "src",
         "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
       );
 
-      var card = $("<div>").addClass("card");
-      var cardBody = $("<div>").addClass("card-body");
-      var cityTemp = $("<p>")
-        .addClass("card-text")
-        .text("Temperature: " + data.main.temp + "°F");
-      var cityWind = $("<p>")
-        .addClass("card-text")
-        .text("Wind speed: " + data.wind.speed + "MPH");
-      var cityHumid = $("<p>")
-        .addClass("card-text")
-        .text("Humidity: " + data.main.humidity + "%");
+      var card = $("<div>")
+      var cardBody = $("<div>")
+      var cityTemp = $("<p>").addClass("d-inline px-3").text("Temperature: " + data.main.temp + "°F");
+      var cityWind = $("<p>").addClass("d-inline px-3").text("Wind speed: " + data.wind.speed + "MPH");
+      var cityHumid = $("<p>").addClass("d-inline px-3").text("Humidity: " + data.main.humidity + "%");
       //Adding icon image to weather response
       title.append(img);
       cardBody.append(title, cityTemp, cityHumid, cityWind);
@@ -221,7 +223,7 @@ $(document).ready(function () {
 
   // Keyboard event-handler-function eventListener
   $(document).on('keypress', keypressHandler);
-  console.log("keypress eventHandler registered");
+  // console.log("keypress eventHandler registered");
 
 
   //Weather Generator

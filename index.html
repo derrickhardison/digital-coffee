@@ -37,30 +37,17 @@
   </head>
   <body>
 
-    <!-- Header with page title  -->
-    <header id="header" class="text-center">
-        <h1>Digital Coffee: Your Daily Dose of Inspiration</h1>
-        <!-- <p id="currentDay" class="lead"></p> -->
-    </header>
-
-    <main class="container text-center">
-
-      <!-- div for the quote box  -->
-      <div id="quote-box">
-        <p id="quote" class="d-inline"></p>
-        <span id="author"></span>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-2">
-          <!-- User Setting Header -->
-          <!-- <div class="card"> -->
-        <!-- <p>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            "Click to Freshen Up Your Day"</button>
-        </p>
-            <div class="collapse" id="collapseExample"> -->
-                <div class="card card-body">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <!-- <p id="current-day" class="lead"></p> -->
+          <header class="navbar-brand mx-auto" id="nav-header" href="#">Digital Coffee: Your Daily Dose of Inspiration</header>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Quote Theme</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <!--Quote Choice -->
                     <h2 class="search-quote text-center">Quote</h2>
                     <div class="input-group">
@@ -69,28 +56,38 @@
                         <option value="Dad Jokes">Dad Jokes</option>
                         <option value="Inspiration">Inspiration</option>
                         </select>
-
                     </div>
                     <!-- Weather Search -->
-                    <h2 class="search-location text-center">Weather</h2>
-                    <div class="input-group">
-                        <input
-                        class="form-control text-center"
-                        type="text"
-                        placeholder="Type your current location"
-                        id="weather-search"
-                        />
-                        <button class="btn btn-primary" id="weather-button">
-                        <i class="fa fa-search"></i></button>
-                    </div>
-                    <div class="col">
-                      <div id="today-cast" class="mt-3"></div>
-                    </div>
-               
-                </div>
+                  </ul>
+                </li>
+              </ul>
+              <form class="d-flex">
+                <!-- Weather Search -->
+                <div class="input-group">
+                  <input class="form-control text-center"
+                          type="text"
+                          placeholder="Type your city name..."
+                          id="weather-search"/>
+                  <button class="btn btn-primary" id="weather-button">
+                  <i class="fa fa-search"></i></button>  
             </div>
-          </div>
+          </form>
         </div>
+      </nav>
+      <div class="row">
+        <div class="col">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light" id="today-cast" class="mt-3"></nav>
+        </div>
+      </div>
+    <main class="containter-fluid text-center">
+        <!-- div for the quote box  -->
+      <div id="quote-box">
+        <p id="quote" class="d-inline"></p>
+        <span id="author"></span>
+      </div>
+  
+      <div class="row">
+        <div class="col-sm-2"></div>
       </div>
     </main>
 
