@@ -3,8 +3,8 @@
 ///////////////
 $(document).ready(function () {
   //moment.js variable
-  // var timeDate = moment().format('MMMM Do YYYY, h:mm:ss a');
-  //   $("#currentDay").append(timeDate);
+  // var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+  //   $("#current-day").append(currentTime);
   // DOM VARIABLES
   var headerEL = $("#header");
   var quoteEl = $("#quote");
@@ -41,14 +41,14 @@ $(document).ready(function () {
   
     $("#today-cast").empty();
 
-    var title = $("<h3>").addClass("card-title").text(data.name + " (" + new Date().toLocaleDateString() + ")");
+    var title = $("<h3>").text(data.name + " (" + new Date().toLocaleDateString() + ")");
     var img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
     
-    var card = $("<div>").addClass("card");
-    var cardBody = $("<div>").addClass("card-body");
-    var cityTemp = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp +  "°F");
-    var cityWind = $("<p>").addClass("card-text").text("Wind speed: " + data.wind.speed + "MPH");
-    var cityHumid = $("<p>").addClass("card-text").text("Humidity: " + data.main.humidity + "%");
+    var card = $("<div>");
+    var cardBody = $("<div>");
+    var cityTemp = $("<p>").text("T: " + data.main.temp +  "°F");
+    var cityWind = $("<p>").text("WS: " + data.wind.speed + "MPH");
+    var cityHumid = $("<p>").text("H: " + data.main.humidity + "%");
     //Adding icon image to weather response
     title.append(img);
     cardBody.append(title, cityTemp, cityHumid, cityWind);

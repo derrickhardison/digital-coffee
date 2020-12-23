@@ -1,4 +1,13 @@
-header, h1{
+.navbar {
+  position: relative;
+}
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  margin-left: -50px !important;  /* 50% of your logo width */
+  display: block;
+}
+header{
     font-weight: bold;
     font-size: 200%;
     font-family: 'Lobster', cursive;
@@ -12,9 +21,9 @@ img{
 #option1{
     text-align: center;
 }
-#currentDay{
+#today-cast{
     font-weight: bold;
-    font-size: 50%;
+    font-size: 100%;
     font-family: 'Lobster', cursive;
 }
 
@@ -43,7 +52,7 @@ body {
   background-color: rgb(73, 73, 73);
 }
 
-p {
+#quote {
   font-family: "Courgette", cursive;
   font-size: 50pt;
   font-weight: bolder;
