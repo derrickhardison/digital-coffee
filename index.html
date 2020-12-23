@@ -34,13 +34,18 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
+    <!-- Header with page title  -->
     <header id="header" class="text-center">
       Digital Coffee: Your Daily Dose of Inspiration
     </header>
+
     <main class="containter-fluid text-center">
-      <div>
-        <p id="quote-box" class="d-inline"></p>
-        <span id="author-box"></span>
+
+      <!-- div for the quote box  -->
+      <div id="quote-box">
+        <p id="quote" class="d-inline"></p>
+        <span id="author"></span>
       </div>
 
       <div class="row">
@@ -54,8 +59,8 @@
               <div class="input-group">
                 <select class="form-select">
                   <option value="" disabled selected>Select your Theme:</option>
-                  <option value="1">Funny</option>
-                  <option value="2">Inspirational</option>
+                  <option value="Dad Jokes">Dad Jokes</option>
+                  <option value="Inspiration">Inspiration</option>
                 </select>
                 <button class="btn btn-primary" id="quote-button">
                   <i class="fa fa-search"></i>
