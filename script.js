@@ -116,6 +116,29 @@ $(document).ready(function () {
     }
   }
 
+  /**
+   * keypressHandler(evt)
+   * An input handler function, called by a document.on('keypress') eventlistener
+   * Add hooks to process different keyboard input events as necessary
+   * Parameter: evt
+   * Description:  The event containing the key pressed, among other things.
+   */
+  function keypressHandler(evt){
+    //console.log(evt.which);
+    switch(evt.which){
+      case 126:         // tilde "~"" key
+        tildeEventHandler();
+    }
+  }
+
+  /**
+   * tildeEventHandler
+   * Desc: An example specific keypress event handler
+   **/
+  function tildeEventHandler(){
+    // Do tilde-specific things here.
+  }
+
   // FUNCTION CALLS
 
   // This function appends an element to the body for now due to asynchronous return of .then
@@ -130,4 +153,11 @@ $(document).ready(function () {
     userPreferences.quoteType = userInputQuoteTypeEl.val();
     renderQuote();
   });
+
+  // Keyboard event-handler-function eventListener
+  $(document).on('keypress', keypressHandler);
+  console.log("keypress eventHandler registered");
+
 });
+
+  
