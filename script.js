@@ -214,7 +214,8 @@ $(document).ready(function () {
   // EVENT LISTENERS
 
   // when user changes settings for quote types
-  userInputQuoteTypeEl.change(function () {
+  userInputQuoteTypeEl.change(function (event) {
+    event.preventDefault();
     userPreferences.quoteType = userInputQuoteTypeEl.val();
     storePreferences();
     renderQuote();
