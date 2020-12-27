@@ -6,10 +6,11 @@ $(document).ready(function () {
   // var timeDate = moment().format('MMMM Do YYYY, h:mm:ss a');
   //   $("#currentDay").append(timeDate);
   // DOM VARIABLES
-  var headerEL = $("#header");
+  var titleEl = $("#title");
   var quoteEl = $("#quote");
   var authorEl = $("#author");
   var userInputQuoteTypeEl = $("#user-pref-quote-type");
+  var dateEl = $("#date");
 
   // JAVASCRIPT VARIABLES
   var quote = "";
@@ -29,16 +30,7 @@ $(document).ready(function () {
 
   // FUNCTION DEFINTIONS
 
-  //Function w/ AJAX and Openweather API
-  $("#weather-button").on("click", function(event) {
-    event.preventDefault();
-    var searchTerm = $("#weather-search").val();
-    console.log("You Clicked");
-
-    $("#weather-search").val("");
-    weatherFunction(searchTerm);
-  });
-
+ 
   function weatherFunction(searchTerm) {
 
     $.ajax({
@@ -68,6 +60,8 @@ $(document).ready(function () {
       cardBody.append(title, cityTemp, cityHumid, cityWind);
       card.append(cardBody);
       $("#today-cast").append(card);
+      userPreferences.location.city=searchTerm;
+      storePreferences();
     });
   }
   /**
@@ -152,7 +146,7 @@ $(document).ready(function () {
   function renderText() {
     quoteEl.text(quote);
     authorEl.text("- " + author);
-    headerEL.text(
+    titleEl.text(
       "Digital Coffee: Your Daily Dose of " + userPreferences.quoteType
     );
   }
@@ -210,11 +204,13 @@ $(document).ready(function () {
   initPreferences();
   getPexelsImage(strSearchTerm, intNumImages);
   renderQuote();
+  dateEl.text(moment().format("dddd MM/D/YYYY"));
 
   // EVENT LISTENERS
 
   // when user changes settings for quote types
-  userInputQuoteTypeEl.change(function () {
+  userInputQuoteTypeEl.change(function (event) {
+    event.preventDefault();
     userPreferences.quoteType = userInputQuoteTypeEl.val();
     storePreferences();
     renderQuote();
@@ -226,13 +222,16 @@ $(document).ready(function () {
   // console.log("keypress eventHandler registered");
 
 
-  //Weather Generator
-  $("#weather-button").on("click", function () {
-    //Search Bar/Button for Weather
+
+
+   //Function w/ AJAX and Openweather API
+   $("#weather-button").on("click", function(event) {
+    event.preventDefault();
     var searchTerm = $("#weather-search").val();
     $("#weather-search").val("");
     weatherFunction(searchTerm);
   });
+
  
 });
 

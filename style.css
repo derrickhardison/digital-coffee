@@ -1,15 +1,10 @@
-header{
-    font-weight: bold;
-    font-size: 200%;
-    font-family: 'Lobster', cursive;
-}
 img{
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-.navbar {
+/* .navbar {
   position: relative;
 }
 .navbar-brand {
@@ -17,7 +12,7 @@ img{
   left: 50%;
   margin-left: -50px !important;  
   display: block;
-}
+} */
 #option1{
     text-align: center;
 }
@@ -53,30 +48,36 @@ body {
   background-color: rgb(73, 73, 73);
 }
 
+#quote-box{
+  height: 30vh;
+  margin-top: 10vh;
+  /* background-color: rgba(73, 73, 73, 0.466);  */
+}
+
 #quote {
   font-family: "Courgette", cursive;
-  font-size: 50pt;
+  max-height: 50%;
+  font-size: 5vh;
   font-weight: bolder;
   -webkit-text-stroke: 0.25px black;
   color: white;
-  margin-left: 100px;
+
 }
 span {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 30pt;
+  font-size: 2rem;
   -webkit-text-stroke: 1px black;
   color: white;
   margin-left: 1rem;
 }
 
-#header {
-  margin-top: 10px;
-  margin-bottom: 10%;
+#title {
+
   font-family: "Courgette", cursive;
-  font-size: 25pt;
+  font-size: 2rem;
   font-weight: bolder;
   -webkit-text-stroke: 0.25px black;
   color: rgb(255, 226, 129);
-  margin-left: 100px;
+  
 
 }
