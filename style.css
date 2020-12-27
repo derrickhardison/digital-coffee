@@ -70,13 +70,12 @@ span {
 }
 
 #title {
-  /* margin-top: 10px; */
-  /* margin-bottom: 10%; */
+
   font-family: "Courgette", cursive;
   font-size: 2rem;
   font-weight: bolder;
   -webkit-text-stroke: 0.25px black;
   color: rgb(255, 226, 129);
-  margin-left: 100px;
+  
 
 }

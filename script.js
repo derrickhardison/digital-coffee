@@ -10,6 +10,7 @@ $(document).ready(function () {
   var quoteEl = $("#quote");
   var authorEl = $("#author");
   var userInputQuoteTypeEl = $("#user-pref-quote-type");
+  var dateEl = $("#date");
 
   // JAVASCRIPT VARIABLES
   var quote = "";
@@ -59,6 +60,8 @@ $(document).ready(function () {
       cardBody.append(title, cityTemp, cityHumid, cityWind);
       card.append(cardBody);
       $("#today-cast").append(card);
+      userPreferences.location.city=searchTerm;
+      storePreferences();
     });
   }
   /**
@@ -201,6 +204,7 @@ $(document).ready(function () {
   initPreferences();
   getPexelsImage(strSearchTerm, intNumImages);
   renderQuote();
+  dateEl.text(moment().format("dddd MM/D/YYYY"));
 
   // EVENT LISTENERS
 
@@ -224,8 +228,6 @@ $(document).ready(function () {
    $("#weather-button").on("click", function(event) {
     event.preventDefault();
     var searchTerm = $("#weather-search").val();
-    console.log("You Clicked");
-
     $("#weather-search").val("");
     weatherFunction(searchTerm);
   });
