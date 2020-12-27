@@ -52,36 +52,73 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <!-- <p id="current-day" class="lead"></p> -->
-        <header class="navbar-brand mx-auto" id="title" href="#">
-          Digital Coffee: Your Daily Dose of Inspiration
-        </header>
+        <div class="row">
+          <a class="navbar-brand mx-auto col-12" id="title">
+            Digital Coffee: Your Daily Dose of Inspiration
+          </a>
+        </div>
+
+        <div id="date" class="nav-item">Date</div>
+        <div id="current-weather" class="nav-item">Weather</div>
+
+        <!-- button for settings  -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa fa-cog"></i>
+        </button>
+
+        <!-- section behind the settings button  -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <select id="user-pref-quote-type" class="form-select">
-              <option value="" disabled selected id="quote-theme-box">
-                Quote Theme:
-              </option>
-              <option value="Dad Jokes">Dad Jokes</option>
-              <option value="Inspiration">Inspiration</option>
-            </select>
+          <ul class="navbar-nav ml-auto">
+            <!-- quote theme  -->
+            <li>
+              <select id="user-pref-quote-type" class="form-select">
+                <option value="" disabled selected id="quote-theme-box">
+                  Quote Theme:
+                </option>
+                <option value="Dad Jokes">Dad Jokes</option>
+                <option value="Inspiration">Inspiration</option>
+              </select>
+            </li>
+
+            <!-- photo theme  -->
+            <li>
+              <select id="user-pref-quote-type" class="form-select">
+                <option value="" disabled selected id="quote-theme-box">
+                  Photo Theme:
+                </option>
+                <option value="Animals">Animals</option>
+                <option value="Stars">Stars</option>
+              </select>
+            </li>
+
+            <li>
+              <form class="d-flex">
+                <!-- Weather Search -->
+                <div class="input-group">
+                  <input
+                    class="form-control text-center"
+                    type="text"
+                    placeholder="Type your city name..."
+                    id="weather-search"
+                  />
+                  <button class="btn btn-primary" id="weather-button">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </form>
+            </li>
           </ul>
-          <form class="d-flex">
-            <!-- Weather Search -->
-            <div class="input-group">
-              <input
-                class="form-control text-center"
-                type="text"
-                placeholder="Type your city name..."
-                id="weather-search"
-              />
-              <button class="btn btn-primary" id="weather-button">
-                <i class="fa fa-search"></i>
-              </button>
-            </div>
-          </form>
         </div>
       </div>
     </nav>
