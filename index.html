@@ -55,14 +55,16 @@
   </head>
 
   <body>
-    <header id="title" class="text-center bg-light">Digital Coffee: Your Daily Dose of Inspiration</header>
+    <header id="title" class="text-center bg-light">
+      Digital Coffee: Your Daily Dose of Inspiration
+    </header>
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <!-- <p id="current-day" class="lead"></p> -->
 
         <div id="date" class="nav-item">Date</div>
-        <div id="current-weather" class="nav-item">Weather</div>
+        <div id="current-weather" class="nav-item">City 70°F sun</div>
 
         <!-- button for settings  -->
         <button
@@ -147,6 +149,33 @@
       <div class="row">
         <div class="col-sm-2"></div>
       </div>
+
+      <div id="google-search-bar" class="row">
+        <form
+          action="https://www.google.com/search"
+          class="form-inline"
+          method="get"
+          name="searchform"
+          target="_blank"
+        >
+          <input name="sitesearch" type="hidden" />
+          <input
+            autocomplete="on"
+            class="form-control"
+            name="q"
+            placeholder="Search Google"
+         
+            type="text"
+          />
+          <button class="btn btn-primary" type="submit">
+            Google <i class="fa fa-search"></i>
+          </button>
+        </form>
+
+
+      </div>
+
+      
     </main>
 
     <script src="script.js" async defer></script>
