@@ -16,3 +16,4 @@ View the site at [project-01](https://ahnlok.github.io/project-01/)
 - [Pexels API](https://www.pexels.com/api/) 
 
 ## Licence
+MIT
