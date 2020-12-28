@@ -30,9 +30,7 @@ $(document).ready(function () {
 
   // FUNCTION DEFINTIONS
 
- 
   function weatherFunction(searchTerm) {
-
     $.ajax({
       url:
         "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -44,23 +42,31 @@ $(document).ready(function () {
 
       $("#today-cast").empty();
 
-      var title = $("<h3>").addClass("d-inline px-3").text(data.name + " (" + new Date().toLocaleDateString() + ")");
+      var title = $("<h3>")
+        .addClass("d-inline px-3")
+        .text(data.name + " (" + new Date().toLocaleDateString() + ")");
       var img = $("<img>").attr(
         "src",
         "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
       );
 
-      var card = $("<div>")
-      var cardBody = $("<div>")
-      var cityTemp = $("<p>").addClass("d-inline px-3").text("Temperature: " + data.main.temp + "°F");
-      var cityWind = $("<p>").addClass("d-inline px-3").text("Wind speed: " + data.wind.speed + "MPH");
-      var cityHumid = $("<p>").addClass("d-inline px-3").text("Humidity: " + data.main.humidity + "%");
+      var card = $("<div>");
+      var cardBody = $("<div>");
+      var cityTemp = $("<p>")
+        .addClass("d-inline px-3")
+        .text("Temperature: " + data.main.temp + "°F");
+      var cityWind = $("<p>")
+        .addClass("d-inline px-3")
+        .text("Wind speed: " + data.wind.speed + "MPH");
+      var cityHumid = $("<p>")
+        .addClass("d-inline px-3")
+        .text("Humidity: " + data.main.humidity + "%");
       //Adding icon image to weather response
       title.append(img);
       cardBody.append(title, cityTemp, cityHumid, cityWind);
       card.append(cardBody);
       $("#today-cast").append(card);
-      userPreferences.location.city=searchTerm;
+      userPreferences.location.city = searchTerm;
       storePreferences();
     });
   }
@@ -118,7 +124,7 @@ $(document).ready(function () {
       },
     }).then(function (response) {
       quote = response.joke;
-      author = "Dad";
+      author = "Dad Joke";
       renderText();
     });
   }
@@ -142,6 +148,21 @@ $(document).ready(function () {
     });
   }
 
+  // gets random chuck norris joke
+  function chuckNorrisJoke() {
+    $.ajax({
+      url: "https://api.chucknorris.io/jokes/random",
+      method: "GET",
+    }).then(function (response) {
+      // response = JSON.parse(response);
+     
+      quote = response.value;
+      author = "Chuck Norris Joke";
+    
+      renderText();
+    });
+  }
+
   // render quotes on the page to the
   function renderText() {
     quoteEl.text(quote);
@@ -156,22 +177,30 @@ $(document).ready(function () {
     switch (userPreferences.quoteType) {
       case "Dad Jokes":
         dadJoke();
+        getPexelsImage(strSearchTerm, intNumImages);
         break;
       case "Inspiration":
         inspirationalQuote();
+        getPexelsImage(strSearchTerm, intNumImages);
+        break;
+      case "Chuck Norris Jokes":
+        chuckNorrisJoke();
+        getPexelsImage(strSearchTerm, intNumImages);
         break;
     }
   }
   // function to initialize user preferences from local storage
   function initPreferences() {
-    let storedPreferences = JSON.parse(localStorage.getItem("storedPreferences"));
-    if (storedPreferences){
+    let storedPreferences = JSON.parse(
+      localStorage.getItem("storedPreferences")
+    );
+    if (storedPreferences) {
       userPreferences = storedPreferences;
     }
   }
-  
+
   // function to store preferences to local storage
-  function storePreferences(){
+  function storePreferences() {
     localStorage.setItem("storedPreferences", JSON.stringify(userPreferences));
   }
 
@@ -182,10 +211,10 @@ $(document).ready(function () {
    * Parameter: evt
    * Description:  The event containing the key pressed, among other things.
    */
-  function keypressHandler(evt){
+  function keypressHandler(evt) {
     //console.log(evt.which);
-    switch(evt.which){
-      case 126:         // tilde "~"" key
+    switch (evt.which) {
+      case 126: // tilde "~"" key
         tildeEventHandler();
     }
   }
@@ -194,7 +223,7 @@ $(document).ready(function () {
    * tildeEventHandler
    * Desc: An example specific keypress event handler
    **/
-  function tildeEventHandler(){
+  function tildeEventHandler() {
     // Do tilde-specific things here.
   }
 
@@ -216,23 +245,15 @@ $(document).ready(function () {
     renderQuote();
   });
 
-
   // Keyboard event-handler-function eventListener
-  $(document).on('keypress', keypressHandler);
+  $(document).on("keypress", keypressHandler);
   // console.log("keypress eventHandler registered");
 
-
-
-
-   //Function w/ AJAX and Openweather API
-   $("#weather-button").on("click", function(event) {
+  //Function w/ AJAX and Openweather API
+  $("#weather-button").on("click", function (event) {
     event.preventDefault();
     var searchTerm = $("#weather-search").val();
     $("#weather-search").val("");
     weatherFunction(searchTerm);
   });
-
- 
 });
-
-  
