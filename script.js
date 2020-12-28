@@ -2,15 +2,14 @@
 // script.js //
 ///////////////
 $(document).ready(function () {
-  //moment.js variable
-  // var timeDate = moment().format('MMMM Do YYYY, h:mm:ss a');
-  //   $("#currentDay").append(timeDate);
+ 
   // DOM VARIABLES
   var titleEl = $("#title");
   var quoteEl = $("#quote");
   var authorEl = $("#author");
   var userInputQuoteTypeEl = $("#user-pref-quote-type");
   var dateEl = $("#date");
+
 
   // JAVASCRIPT VARIABLES
   var quote = "";
@@ -27,15 +26,21 @@ $(document).ready(function () {
     Math.random() * strSearchTermArray.length
   ); // Generate random strsearchTermArray index
   var strSearchTerm = strSearchTermArray[strSearchTermIndex]; // pick one string from array
-
+  var timeDate = moment().format('MMMM Do YYYY, h:mm a');
+    dateEl.text(timeDate);
+  
   // FUNCTION DEFINTIONS
 
+  // Current Time & Date using moment.js
+
+  
+  // Weather API
   function weatherFunction(searchTerm) {
     $.ajax({
       url:
         "https://api.openweathermap.org/data/2.5/weather?q=" +
         searchTerm +
-        "&appid=366ea93a291baf148a642f8cd8243771&units=imperial",
+        "&appid=0ee1a87c3651c275861013bac617a620&units=imperial",
       method: "GET",
     }).then(function (data) {
       //Clearing out previous search after refresh
@@ -248,7 +253,7 @@ $(document).ready(function () {
   initPreferences();
   getPexelsImage(strSearchTerm, intNumImages);
   renderQuote();
-  dateEl.text(moment().format("dddd MM/D/YYYY"));
+  // dateEl.text(moment().format("dddd MM/D/YYYY"));
 
   // EVENT LISTENERS
 
