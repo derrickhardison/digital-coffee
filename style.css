@@ -10,7 +10,6 @@ html,
 body {
     height: 100%;
 }
-<<<<<<< HEAD
 /* To make html element fill screen */
 html {
   height: 100%;
@@ -18,7 +17,8 @@ html {
 /* To make html element fill screen */
 body {
   min-height: 100%;
-=======
+}
+
 .navbar-brand {
   position: absolute;
   left: 50%;
@@ -30,7 +30,6 @@ body {
   font-size: 150%;
   font-family: 'Lobster';
 
->>>>>>> cd8c4e1c5dda8f767d40a8f91c261951e7ab66d1
 }
 
 #option1{
