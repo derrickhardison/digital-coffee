@@ -10,6 +10,7 @@ $(document).ready(function () {
   var quoteEl = $("#quote");
   var authorEl = $("#author");
   var userInputQuoteTypeEl = $("#user-pref-quote-type");
+  var dateEl = $("#date");
 
   // JAVASCRIPT VARIABLES
   var quote = "";
@@ -28,10 +29,7 @@ $(document).ready(function () {
   var strSearchTerm = strSearchTermArray[strSearchTermIndex]; // pick one string from array
 
   // FUNCTION DEFINTIONS
-  // Current Time & Date using moment.js
-  var timeDate = moment().format('MMMM Do YYYY, h:mm:ss a');
-  $("#date").append(timeDate);
-  //Weather API
+
   function weatherFunction(searchTerm) {
     $.ajax({
       url:
