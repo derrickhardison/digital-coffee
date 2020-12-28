@@ -155,10 +155,10 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (response) {
       // response = JSON.parse(response);
-     
+
       quote = response.value;
       author = "Chuck Norris Joke";
-    
+
       renderText();
     });
   }
@@ -187,6 +187,10 @@ $(document).ready(function () {
         chuckNorrisJoke();
         getPexelsImage(strSearchTerm, intNumImages);
         break;
+        case "Taylor Swift Quotes":
+          taylorSwiftQuote();
+          getPexelsImage(strSearchTerm, intNumImages);
+          break;
     }
   }
   // function to initialize user preferences from local storage
@@ -227,6 +231,17 @@ $(document).ready(function () {
     // Do tilde-specific things here.
   }
 
+  function taylorSwiftQuote() {
+    $.ajax({
+      url: "https://api.taylor.rest/",
+      method: "GET",
+    }).then(function (response) {
+      author = "Taylor Swift";
+      quote = response.quote;
+      renderText();
+    });
+  }
+
   // FUNCTION CALLS
 
   // This function appends an element to the body for now due to asynchronous return of .then
@@ -256,4 +271,13 @@ $(document).ready(function () {
     $("#weather-search").val("");
     weatherFunction(searchTerm);
   });
+
+  // function taylorSwiftQuote() {
+  //   $.ajax({
+  //     url: "https://api.taylor.rest/",
+  //     method: "GET",
+  //   }).then(function (response) {
+  //     console.log("Taylor Swift API: " + response);
+  //   });
+  // }
 });
