@@ -4,9 +4,21 @@ img{
     background-repeat: no-repeat;
     background-size: cover;
 }
-/* .navbar {
-  position: relative;
+
+/* To make html element fill screen */
+html, 
+body {
+    height: 100%;
 }
+/* To make html element fill screen */
+html {
+  height: 100%;
+}
+/* To make html element fill screen */
+body {
+  min-height: 100%;
+}
+
 .navbar-brand {
   position: absolute;
   left: 50%;
@@ -88,4 +100,17 @@ span {
   color: rgb(255, 226, 129);
   
 
+}
+
+.credit2pexels {
+  font-family: "Quicksand";
+  font-size: large;
+  -webkit-text-stroke: 0.25px black;
+  color: white;
+}
+
+.pexelsLink {
+  -webkit-text-stroke: 0.25px black;
+  color: white;
+  text-decoration: none;
 }
