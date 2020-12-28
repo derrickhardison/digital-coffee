@@ -8,7 +8,11 @@ $(document).ready(function () {
   var quoteEl = $("#quote");
   var authorEl = $("#author");
   var userInputQuoteTypeEl = $("#user-pref-quote-type");
+<<<<<<< HEAD
   
+=======
+  var dateEl = $("#date");
+>>>>>>> 17ea30f8edc6e202ca984e17cca87e449885b143
 
   // JAVASCRIPT VARIABLES
   var quote = "";
@@ -27,11 +31,15 @@ $(document).ready(function () {
   var strSearchTerm = strSearchTermArray[strSearchTermIndex]; // pick one string from array
 
   // FUNCTION DEFINTIONS
+<<<<<<< HEAD
   // Current Time & Date using moment.js
   var timeDate = moment().format('MMMM Do YYYY, h:mm:ss a');
     $("#date").append(timeDate);
   
   // Weather API
+=======
+
+>>>>>>> 17ea30f8edc6e202ca984e17cca87e449885b143
   function weatherFunction(searchTerm) {
     $.ajax({
       url:
