@@ -87,3 +87,16 @@ span {
   
 
 }
+
+.credit2pexels {
+  font-family: "Quicksand";
+  font-size: large;
+  -webkit-text-stroke: 0.25px black;
+  color: white;
+}
+
+.pexelsLink {
+  -webkit-text-stroke: 0.25px black;
+  color: white;
+  text-decoration: none;
+}
