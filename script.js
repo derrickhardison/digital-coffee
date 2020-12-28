@@ -19,11 +19,12 @@ $(document).ready(function () {
   };
 
   var intNumImages = 30; // How many images to get in ajax call to choose from at random
-  var strSearchTermArray = ["cozy", "morning", "coffee", "calm"]; // Temporary list of random search terms
+  var strSearchTermArray = ["cozy", "morning", "coffee"]; // Temporary list of random search terms
   var strSearchTermIndex = Math.floor(
     Math.random() * strSearchTermArray.length
   ); // Generate random strsearchTermArray index
-  var strSearchTerm = strSearchTermArray[strSearchTermIndex]; // pick one string from array
+  var weatherState = "calm";
+  var strSearchTerm = strSearchTermArray[strSearchTermIndex] + " " + weatherState; // pick one string from array, add weatherState string
   
   
   // FUNCTION DEFINTIONS
@@ -71,6 +72,13 @@ $(document).ready(function () {
       $("#today-cast").append(card);
       userPreferences.location.city = searchTerm;
       storePreferences();
+      
+      // Update weatherState string and updateBackground image
+      console.log(data.weather[0].main);
+      weatherState = data.weather[0].main;
+      strSearchTerm = strSearchTermArray[strSearchTermIndex] + " " + weatherState;
+      getPexelsImage(strSearchTerm, intNumImages);
+      
     });
   }
   /**
@@ -249,7 +257,6 @@ $(document).ready(function () {
 
   // This function appends an element to the body for now due to asynchronous return of .then
   initPreferences();
-  getPexelsImage(strSearchTerm, intNumImages);
   renderQuote();
   
 
