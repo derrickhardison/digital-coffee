@@ -4,15 +4,21 @@ img{
     background-repeat: no-repeat;
     background-size: cover;
 }
-/* .navbar {
-  position: relative;
+
+/* To make html element fill screen */
+html, 
+body {
+    height: 100%;
 }
-.navbar-brand {
-  position: absolute;
-  left: 50%;
-  margin-left: -50px !important;  
-  display: block;
-} */
+/* To make html element fill screen */
+html {
+  height: 100%;
+}
+/* To make html element fill screen */
+body {
+  min-height: 100%;
+}
+
 #option1{
     text-align: center;
 }
