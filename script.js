@@ -24,13 +24,12 @@ $(document).ready(function () {
     Math.random() * strSearchTermArray.length
   ); // Generate random strsearchTermArray index
   var strSearchTerm = strSearchTermArray[strSearchTermIndex]; // pick one string from array
-  var timeDate = moment().format('MMMM Do YYYY, h:mm a');
-    dateEl.text(timeDate);
+  
   
   // FUNCTION DEFINTIONS
 
   // Current Time & Date using moment.js
-  var timeDate = moment().format('MMMM Do YYYY, h:mm:ss a');
+  var timeDate = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
     $("#date").append(timeDate);
   
   // Weather API
@@ -252,7 +251,7 @@ $(document).ready(function () {
   initPreferences();
   getPexelsImage(strSearchTerm, intNumImages);
   renderQuote();
-  // dateEl.text(moment().format("dddd MM/D/YYYY"));
+  
 
   // EVENT LISTENERS
 

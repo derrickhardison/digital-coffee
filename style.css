@@ -13,9 +13,17 @@ img{
   margin-left: -50px !important;  
   display: block;
 } */
+#date{
+  font-weight: bold;
+  font-size: 150%;
+  font-family: 'Lobster';
+
+}
+
 #option1{
     text-align: center;
 }
+
 #today-cast{
     font-weight: bold;
     font-size: 100%;
