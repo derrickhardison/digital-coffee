@@ -2,7 +2,6 @@
 // script.js //
 ///////////////
 $(document).ready(function () {
- 
   // DOM VARIABLES
   var titleEl = $("#title");
   var quoteEl = $("#quote");
@@ -24,15 +23,15 @@ $(document).ready(function () {
     Math.random() * strSearchTermArray.length
   ); // Generate random strsearchTermArray index
   var weatherState = "calm";
-  var strSearchTerm = strSearchTermArray[strSearchTermIndex] + " " + weatherState; // pick one string from array, add weatherState string
-  
-  
+  var strSearchTerm =
+    strSearchTermArray[strSearchTermIndex] + " " + weatherState; // pick one string from array, add weatherState string
+
   // FUNCTION DEFINTIONS
 
   // Current Time & Date using moment.js
-  var timeDate = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
-    $("#date").append(timeDate);
-  
+  var timeDate = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+  $("#date").append(timeDate);
+
   // Weather API
   function weatherFunction(searchTerm) {
     $.ajax({
@@ -72,13 +71,13 @@ $(document).ready(function () {
       $("#today-cast").append(card);
       userPreferences.location.city = searchTerm;
       storePreferences();
-      
+
       // Update weatherState string and updateBackground image
       console.log(data.weather[0].main);
       weatherState = data.weather[0].main;
-      strSearchTerm = strSearchTermArray[strSearchTermIndex] + " " + weatherState;
+      strSearchTerm =
+        strSearchTermArray[strSearchTermIndex] + " " + weatherState;
       getPexelsImage(strSearchTerm, intNumImages);
-      
     });
   }
   /**
@@ -174,13 +173,19 @@ $(document).ready(function () {
     });
   }
 
-  // render quotes on the page to the
+  // render quote text on the page based on user preferences
+  // if quote is too long, find a new quote
   function renderText() {
-    quoteEl.text(quote);
-    authorEl.text("- " + author);
-    titleEl.text(
-      "Digital Coffee: Your Daily Dose of " + userPreferences.quoteType
-    );
+    if (quote.length > 120) {
+      renderQuote();
+    } else {
+      quoteEl.text(quote);
+      authorEl.text("- " + author);
+      titleEl.text(
+        "Digital Coffee: Your Daily Dose of " + userPreferences.quoteType
+      );
+      getPexelsImage(strSearchTerm, intNumImages);
+    }
   }
 
   // switch statement to display quote type based on user preferences/settings
@@ -188,20 +193,16 @@ $(document).ready(function () {
     switch (userPreferences.quoteType) {
       case "Dad Jokes":
         dadJoke();
-        getPexelsImage(strSearchTerm, intNumImages);
         break;
       case "Inspiration":
         inspirationalQuote();
-        getPexelsImage(strSearchTerm, intNumImages);
         break;
       case "Chuck Norris Jokes":
         chuckNorrisJoke();
-        getPexelsImage(strSearchTerm, intNumImages);
         break;
-        case "Taylor Swift Quotes":
-          taylorSwiftQuote();
-          getPexelsImage(strSearchTerm, intNumImages);
-          break;
+      case "Taylor Swift Quotes":
+        taylorSwiftQuote();
+        break;
     }
   }
   // function to initialize user preferences from local storage
@@ -258,7 +259,7 @@ $(document).ready(function () {
   // This function appends an element to the body for now due to asynchronous return of .then
   initPreferences();
   renderQuote();
-  
+  getPexelsImage(strSearchTerm, intNumImages);
 
   // EVENT LISTENERS
 
