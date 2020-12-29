@@ -10,13 +10,20 @@ html,
 body {
     height: 100%;
 }
+
 /* To make html element fill screen */
 html {
   height: 100%;
 }
+
 /* To make html element fill screen */
 body {
   min-height: 100%;
+}
+
+/* Adjust element opacity */
+header, nav {
+  opacity: 0.8;
 }
 
 .navbar-brand {
@@ -25,18 +32,18 @@ body {
   margin-left: -50px !important;  
   display: block;
 } */
-#date{
+
+#date {
   font-weight: bold;
   font-size: 150%;
   font-family: 'Lobster';
-
 }
 
-#option1{
+#option1 {
     text-align: center;
 }
 
-#today-cast{
+#today-cast {
     font-weight: bold;
     font-size: 100%;
     font-family: 'Lobster', cursive;
@@ -53,6 +60,7 @@ body {
   font-size: 20px;
   font-weight: bold;
 }
+
 .card {
   position: absolute;
   top: 0;
@@ -81,8 +89,8 @@ body {
   font-weight: bolder;
   -webkit-text-stroke: 0.25px black;
   color: white;
-
 }
+
 span {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 4vh;
@@ -92,14 +100,11 @@ span {
 }
 
 #title {
-
   font-family: "Courgette", cursive;
   font-size: 2rem;
   font-weight: bolder;
   -webkit-text-stroke: 0.25px black;
   color: rgb(255, 226, 129);
-  
-
 }
 
 .credit2pexels {
