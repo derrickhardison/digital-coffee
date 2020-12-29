@@ -203,15 +203,6 @@ $(document).ready(function () {
         chuckNorrisJoke();
         break;
       case "Taylor Swift Quotes":
-
-          taylorSwiftQuote();
-          getPexelsImage(strSearchTerm, intNumImages);
-          break;
-
-        taylorSwiftQuote();
-        break;
-
-
         taylorSwiftQuote();
         break;
 
