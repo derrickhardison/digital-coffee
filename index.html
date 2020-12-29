@@ -25,8 +25,8 @@
       href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link 
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap"
       rel="stylesheet"
     />
@@ -68,7 +68,7 @@
       <div class="container-fluid">
         <!-- <p id="current-day" class="lead"></p> -->
 
-        <div id="date" class="nav-item mx-auto">Current: </div>
+        <div id="date" class="nav-item mx-auto">Current:</div>
 
         <!-- button for settings  -->
         <button
@@ -152,40 +152,38 @@
         <span id="author"></span>
       </div>
 
-      <div class="row">
-        <div class="col-sm-2"></div>
-      </div>
-
-      <div id="google-search-bar" class="row">
+      <!-- div for google search bar  -->
+      <div id="google-search-bar" class="">
         <form
           action="https://www.google.com/search"
-          class="form-inline"
+          class="row row-cols-md-auto g-0 align-items-center justify-content-center"
           method="get"
           name="searchform"
-          target="_blank"
         >
-          <input name="sitesearch" type="hidden" />
-          <input
-            autocomplete="on"
-            class="form-control"
-            name="q"
-            placeholder="Search Google"
-         
-            type="text"
-          />
-          <button class="btn btn-primary" type="submit">
-            Google <i class="fa fa-search"></i>
-          </button>
+          <div class="col-12">
+            <input name="sitesearch" type="hidden" />
+            <input
+              autocomplete="on"
+              class="form-control"
+              name="q"
+              placeholder="Search Google"
+              type="text"
+            />
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">
+              Google <i class="fa fa-search"></i>
+            </button>
+          </div>
         </form>
 
         <div class="fixed-bottom credit2pexels">
-          <p>Photos provided by <a class="pexelsLink" href="https://www.pexels.com/">Pexels</a></p>
+          <p>
+            Photos provided by
+            <a class="pexelsLink" href="https://www.pexels.com/">Pexels</a>
+          </p>
         </div>
-
-
       </div>
-
-      
     </main>
 
     <script src="script.js" async defer></script>

@@ -259,7 +259,6 @@ $(document).ready(function () {
   // This function appends an element to the body for now due to asynchronous return of .then
   initPreferences();
   renderQuote();
-  getPexelsImage(strSearchTerm, intNumImages);
 
   // EVENT LISTENERS
 

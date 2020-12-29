@@ -1,14 +1,14 @@
-img{
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+img {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* To make html element fill screen */
-html, 
+html,
 body {
-    height: 100%;
+  height: 100%;
 }
 /* To make html element fill screen */
 html {
@@ -22,25 +22,24 @@ body {
 .navbar-brand {
   position: absolute;
   left: 50%;
-  margin-left: -50px !important;  
+  margin-left: -50px !important;
   display: block;
-} */
-#date{
+}
+*/ #date {
   font-weight: bold;
   font-size: 150%;
-  font-family: 'Lobster';
-
+  font-family: "Lobster";
 }
 
-#option1{
-    text-align: center;
+#option1 {
+  text-align: center;
 }
 
-#today-cast{
-    font-weight: bold;
-    font-size: 100%;
-    font-family: 'Lobster', cursive;
-    float: right;
+#today-cast {
+  font-weight: bold;
+  font-size: 100%;
+  font-family: "Lobster", cursive;
+  float: right;
 }
 
 .card-header {
@@ -58,7 +57,7 @@ body {
   top: 0;
   right: 0;
   margin: 100px;
-  font-family:'Lobster', cursive;
+  font-family: "Lobster", cursive;
   background-image: url("images/city.jpg");
   background-size: cover;
   color: black;
@@ -68,8 +67,8 @@ body {
   background-color: rgb(73, 73, 73);
 }
 
-#quote-box{
-  height: 30vh;
+#quote-box {
+  height: 35vh;
   margin-top: 10vh;
   /* background-color: rgba(73, 73, 73, 0.466);  */
 }
@@ -81,7 +80,6 @@ body {
   font-weight: bolder;
   -webkit-text-stroke: 0.25px black;
   color: white;
-
 }
 span {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -92,14 +90,11 @@ span {
 }
 
 #title {
-
   font-family: "Courgette", cursive;
   font-size: 2rem;
   font-weight: bolder;
   -webkit-text-stroke: 0.25px black;
   color: rgb(255, 226, 129);
-  
-
 }
 
 .credit2pexels {
