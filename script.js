@@ -29,14 +29,13 @@ $(document).ready(function () {
   // FUNCTION DEFINTIONS
 
   // Current Time & Date using moment.js
-<<<<<<< HEAD
+
   var timeDate = moment().format('dddd, MMMM Do YYYY, h:mm a');
     $("#date").append(timeDate);
-=======
-  var timeDate = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
-  $("#date").append(timeDate);
 
->>>>>>> 4eb0fec7c8a984c527a480d852bae659a1d97706
+
+
+
   // Weather API
   function weatherFunction(searchTerm) {
     $.ajax({
@@ -204,14 +203,18 @@ $(document).ready(function () {
         chuckNorrisJoke();
         break;
       case "Taylor Swift Quotes":
-<<<<<<< HEAD
+
           taylorSwiftQuote();
           getPexelsImage(strSearchTerm, intNumImages);
           break;
-=======
+
         taylorSwiftQuote();
         break;
->>>>>>> 4eb0fec7c8a984c527a480d852bae659a1d97706
+
+
+        taylorSwiftQuote();
+        break;
+
     }
   }
   // function to initialize user preferences from local storage
