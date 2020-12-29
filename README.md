@@ -17,9 +17,9 @@
 ---
 
 ## Features
-* [API](#api)
-* [Toggler](#toggler)
-* [Highlights](#highlights)
+#### * [API](#api)
+#### * [Toggler](#toggler)
+#### * [Highlights](#highlights)
 
 
 #### API
@@ -33,53 +33,53 @@
   - ###### Taylor Swift Quotes API (quote): <https://api.taylor.rest/>
   ---
 #### Toggler
-####1. Here is the Navbar:
-![navbar](./Images/newnavbar.jpg)
-####2. On the right corner of Navbar, you will see a "gear icon", which is the choice toggler.
-![toggler](./Images/toggler.jpg)
-####3. Once you click the toggler icon, it will provide you with three different inputs to choose from:
+#### 1. Here is the Navbar:
+#### ![navbar](./Images/newnavbar.jpg)
+#### 2. On the right corner of Navbar, you will see a "gear icon", which is the choice toggler.
+#### ![toggler](./Images/toggler.jpg)
+#### 3. Once you click the toggler icon, it will provide you with three different inputs to choose from:
 - ##### 1. Quote Theme
 - ##### 2. Photo Theme
 - ##### 3. Type your city name (To find the current weather for your desired location)
-![selector](./Images/selector.jpg)
+#### ![selector](./Images/selector.jpg)
 
 ---
 #### Highlights
-####1. Timer
-#####- We included the current time feature using moment.js
-![timer](./Images/timer.jpg)
-####2. Quote and Photo Theme Selector
-#####- User can select his or her choices of "Quote Theme," "Photo Theme," and "Weather for Chosen City."
-![quote](./Images/quote.jpg)
+#### 1. Timer
+##### - We included the current time feature using moment.js
+#### ![timer](./Images/timer.jpg)
+#### 2. Quote and Photo Theme Selector
+##### - User can select his or her choices of "Quote Theme," "Photo Theme," and "Weather for Chosen City."
+#### ![quote](./Images/quote.jpg)
 
-![photo](./Images/photo.jpg) 
+#### ![photo](./Images/photo.jpg) 
 
-![weather](./Images/winput2.jpg) 
-#####- A user will receive these results according to the selected choices:
-######1. Quote
-######2. Background Image
-######3. Weather Information 
+#### ![weather](./Images/winput2.jpg) 
+##### - A user will receive these results according to the selected choices:
+###### 1. Quote
+###### 2. Background Image
+###### 3. Weather Information 
 
 ![quoteresult](./Images/resultfinish.jpg) 
 
 ---
 
 ## Installation
-- [Clone this repo](https://github.com/ahnlok/project-01.git)
-- Push to GitHub
-- Serve main branch via GitHub Pages.
+#### - [Clone this repo](https://github.com/ahnlok/project-01.git)
+#### - Push to GitHub
+#### - Serve main branch via GitHub Pages.
 ---
 ## Usage
-View the site at [project-01](https://ahnlok.github.io/project-01/)
+##### View the site at [project-01](https://ahnlok.github.io/project-01/)
 
 ---
 ## Credit
-####- APIs: Listed on [API](#api) section.
-####- Boostrap: <https://fonts.google.com/> 
-####- Google Font:<https://getbootstrap.com/>
-####- Moment.JS: <https://momentjs.com/>
-####- JQuery: <https://jquery.com/>
-####- Font Awesome: <https://fontawesome.com/>
+#### - APIs: Listed on [API](#api) section.
+#### - Boostrap: <https://fonts.google.com/> 
+#### - Google Font:<https://getbootstrap.com/>
+#### - Moment.JS: <https://momentjs.com/>
+#### - JQuery: <https://jquery.com/>
+#### - Font Awesome: <https://fontawesome.com/>
 
 ---
 ## Contact

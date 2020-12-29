@@ -29,8 +29,12 @@ $(document).ready(function () {
   // FUNCTION DEFINTIONS
 
   // Current Time & Date using moment.js
-  var timeDate = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
-  $("#date").append(timeDate);
+
+  var timeDate = moment().format('dddd, MMMM Do YYYY, h:mm a');
+    $("#date").append(timeDate);
+
+
+
 
   // Weather API
   function weatherFunction(searchTerm) {
@@ -201,6 +205,7 @@ $(document).ready(function () {
       case "Taylor Swift Quotes":
         taylorSwiftQuote();
         break;
+
     }
   }
   // function to initialize user preferences from local storage
