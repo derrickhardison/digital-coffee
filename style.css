@@ -1,14 +1,14 @@
-img{
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+img {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* To make html element fill screen */
-html, 
+html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 /* To make html element fill screen */
@@ -29,7 +29,7 @@ header, nav {
 .navbar-brand {
   position: absolute;
   left: 50%;
-  margin-left: -50px !important;  
+  margin-left: -50px !important;
   display: block;
 } */
 
@@ -69,7 +69,7 @@ header, nav {
   top: 0;
   right: 0;
   margin: 100px;
-  font-family:'Lobster', cursive;
+  font-family: "Lobster", cursive;
   background-image: url("images/city.jpg");
   background-size: cover;
   color: black;
@@ -79,8 +79,8 @@ body {
   background-color: rgb(73, 73, 73);
 }
 
-#quote-box{
-  height: 30vh;
+#quote-box {
+  height: 35vh;
   margin-top: 10vh;
   /* background-color: rgba(73, 73, 73, 0.466);  */
 }
