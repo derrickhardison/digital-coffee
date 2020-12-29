@@ -3,7 +3,10 @@
 ---
 
 ## Description 
-##### In this first first group project of the bootcamp, we built "Digital Coffee: Your Daily Dose of Inspiration," utilizing several different APIs to quotes, background images, and weather information.
+##### <em>In this first first group project of the bootcamp, we built "Digital Coffee: Your Daily Dose of Inspiration," utilizing several different APIs to generate user's choices of:</em>
+- ###### Quotes 
+- ###### Background Images 
+- ###### Weather Information
 ---
 
 ## Table of Contents
@@ -17,9 +20,9 @@
 ---
 
 ## Features
-#### * [API](#api)
-#### * [Toggler](#toggler)
-#### * [Highlights](#highlights)
+* <strong>[API](#api)</strong>
+* <strong>[Toggler](#toggler)</strong>
+* <strong>[Highlights](#highlights)</strong>
 
 
 #### API
@@ -27,40 +30,40 @@
 
   - ###### Open Weather API (weather): <https://api.openweathermap.org/data/2.5/weather>
   - ###### Pexel API (image): <https://api.pexels.com/v1/search?query>
-  - ###### icanhazdadjoke API (quote): <https://icanhazdadjoke.com/>
+  - ###### icanhazdadjoke API (quote): <https://icanhazdadjoke.com>
   - ###### Inspirational quote API (quote): <https://type.fit/api/quotes>
   - ###### Chuck Norris Jokes API (quote): <https://api.chucknorris.io/jokes/random>
-  - ###### Taylor Swift Quotes API (quote): <https://api.taylor.rest/>
+  - ###### Taylor Swift Quotes API (quote): <https://api.taylor.rest>
   ---
 #### Toggler
 #### 1. Here is the Navbar:
-#### ![navbar](./Images/newnavbar.jpg)
+![navbar](./images/newnavbar.jpg)
 #### 2. On the right corner of Navbar, you will see a "gear icon", which is the choice toggler.
-#### ![toggler](./Images/toggler.jpg)
+![toggler](./images/toggler.jpg)
 #### 3. Once you click the toggler icon, it will provide you with three different inputs to choose from:
 - ##### 1. Quote Theme
 - ##### 2. Photo Theme
 - ##### 3. Type your city name (To find the current weather for your desired location)
-#### ![selector](./Images/selector.jpg)
+![selector](./images/selector.jpg)
 
 ---
 #### Highlights
 #### 1. Timer
 ##### - We included the current time feature using moment.js
-#### ![timer](./Images/timer.jpg)
+![timer](./images/timer.jpg)
 #### 2. Quote and Photo Theme Selector
 ##### - User can select his or her choices of "Quote Theme," "Photo Theme," and "Weather for Chosen City."
-#### ![quote](./Images/quote.jpg)
+![quote](./images/quote.jpg)
 
-#### ![photo](./Images/photo.jpg) 
+![photo](./images/photo.jpg) 
 
-#### ![weather](./Images/winput2.jpg) 
+![weather](./images/winput2.jpg) 
 ##### - A user will receive these results according to the selected choices:
 ###### 1. Quote
 ###### 2. Background Image
 ###### 3. Weather Information 
 
-![quoteresult](./Images/resultfinish.jpg) 
+![quoteresult](./images/resultfinish.jpg) 
 
 ---
 
