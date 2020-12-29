@@ -7,6 +7,7 @@ $(document).ready(function () {
   var quoteEl = $("#quote");
   var authorEl = $("#author");
   var userInputQuoteTypeEl = $("#user-pref-quote-type");
+  var userInputThemeTypeEl = $("#user-pref-theme-type");
 
   // JAVASCRIPT VARIABLES
   var quote = "";
@@ -14,17 +15,16 @@ $(document).ready(function () {
   var quoteOptions = ["Dad Jokes", "Inspiration"]; // Can we dynamically add these to the drop-down list on the user settings?
   var userPreferences = {
     quoteType: "Inspiration",
+    themeType: "Morning",
     location: { city: "Atlanta", latitudue: "", longitude: "" },
   };
 
   var intNumImages = 30; // How many images to get in ajax call to choose from at random
-  var strSearchTermArray = ["cozy", "morning", "coffee"]; // Temporary list of random search terms
-  var strSearchTermIndex = Math.floor(
-    Math.random() * strSearchTermArray.length
-  ); // Generate random strsearchTermArray index
+
+  // Generate random strsearchTermArray index
   var weatherState = "calm";
-  var strSearchTerm =
-    strSearchTermArray[strSearchTermIndex] + " " + weatherState; // pick one string from array, add weatherState string
+  var themeState = "morning";
+  var strSearchTerm = themeState + " " + weatherState; // pick one string from array, add weatherState string
 
   // FUNCTION DEFINTIONS
 
@@ -73,10 +73,8 @@ $(document).ready(function () {
       storePreferences();
 
       // Update weatherState string and updateBackground image
-      console.log(data.weather[0].main);
       weatherState = data.weather[0].main;
-      strSearchTerm =
-        strSearchTermArray[strSearchTermIndex] + " " + weatherState;
+      strSearchTerm = themeState + " " + weatherState;
       getPexelsImage(strSearchTerm, intNumImages);
     });
   }
@@ -259,7 +257,7 @@ $(document).ready(function () {
   // This function appends an element to the body for now due to asynchronous return of .then
   initPreferences();
   renderQuote();
-  getPexelsImage(strSearchTerm, intNumImages);
+  //getPexelsImage(strSearchTerm, intNumImages);
 
   // EVENT LISTENERS
 
@@ -267,6 +265,17 @@ $(document).ready(function () {
   userInputQuoteTypeEl.change(function (event) {
     event.preventDefault();
     userPreferences.quoteType = userInputQuoteTypeEl.val();
+    storePreferences();
+    renderQuote();
+  });
+
+  // When user changes settings for theme types
+  userInputThemeTypeEl.change(function (event) {
+    event.preventDefault();
+    userPreferences.themeType = userInputThemeTypeEl.val();
+    // Update search term based on new themeState selection
+    themeState = userInputThemeTypeEl.val();
+    strSearchTerm = themeState + " " + weatherState;
     storePreferences();
     renderQuote();
   });
