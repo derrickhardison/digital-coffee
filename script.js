@@ -29,9 +29,8 @@ $(document).ready(function () {
   // FUNCTION DEFINTIONS
 
   // Current Time & Date using moment.js
-  var timeDate = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
+  var timeDate = moment().format('dddd, MMMM Do YYYY, h:mm a');
     $("#date").append(timeDate);
-  
   // Weather API
   function weatherFunction(searchTerm) {
     $.ajax({
@@ -190,7 +189,7 @@ $(document).ready(function () {
         chuckNorrisJoke();
         getPexelsImage(strSearchTerm, intNumImages);
         break;
-        case "Taylor Swift Quotes":
+      case "Taylor Swift Quotes":
           taylorSwiftQuote();
           getPexelsImage(strSearchTerm, intNumImages);
           break;
