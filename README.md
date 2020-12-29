@@ -33,11 +33,11 @@
   - ###### Taylor Swift Quotes API (quote): <https://api.taylor.rest/>
   ---
 #### Toggler
-####1. Here is the Navbar:
+#### 1. Here is the Navbar:
 ![navbar](./Images/newnavbar.jpg)
-####2. On the right corner of Navbar, you will see a "gear icon", which is the choice toggler.
+#### 2. On the right corner of Navbar, you will see a "gear icon", which is the choice toggler.
 ![toggler](./Images/toggler.jpg)
-####3. Once you click the toggler icon, it will provide you with three different inputs to choose from:
+#### 3. Once you click the toggler icon, it will provide you with three different inputs to choose from:
 - ##### 1. Quote Theme
 - ##### 2. Photo Theme
 - ##### 3. Type your city name (To find the current weather for your desired location)
@@ -55,10 +55,10 @@
 ![photo](./Images/photo.jpg) 
 
 ![weather](./Images/winput2.jpg) 
-#####- A user will receive these results according to the selected choices:
-######1. Quote
-######2. Background Image
-######3. Weather Information 
+##### - A user will receive these results according to the selected choices:
+###### 1. Quote
+###### 2. Background Image
+###### 3. Weather Information 
 
 ![quoteresult](./Images/resultfinish.jpg) 
 

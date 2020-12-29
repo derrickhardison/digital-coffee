@@ -4,27 +4,51 @@ img{
     background-repeat: no-repeat;
     background-size: cover;
 }
-/* .navbar {
-  position: relative;
+
+/* To make html element fill screen */
+html, 
+body {
+    height: 100%;
 }
+
+/* To make html element fill screen */
+html {
+  height: 100%;
+}
+
+/* To make html element fill screen */
+body {
+  min-height: 100%;
+}
+
+/* Adjust element opacity */
+header, nav {
+  opacity: 0.8;
+}
+
 .navbar-brand {
   position: absolute;
   left: 50%;
   margin-left: -50px !important;  
   display: block;
 } */
-#date{
+
+#date {
   font-weight: bold;
   font-size: 120%;
   font-family: 'Lobster';
 }
 
+<<<<<<< HEAD
 
 #option1{
+=======
+#option1 {
+>>>>>>> 4eb0fec7c8a984c527a480d852bae659a1d97706
     text-align: center;
 }
 
-#today-cast{
+#today-cast {
     font-weight: bold;
     font-size: 100%;
     font-family: 'Lobster', cursive;
@@ -41,6 +65,7 @@ img{
   font-size: 20px;
   font-weight: bold;
 }
+
 .card {
   position: absolute;
   top: 0;
@@ -69,8 +94,8 @@ body {
   font-weight: bolder;
   -webkit-text-stroke: 0.25px black;
   color: white;
-
 }
+
 span {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 4vh;
@@ -80,12 +105,22 @@ span {
 }
 
 #title {
-
   font-family: "Courgette", cursive;
   font-size: 2rem;
   font-weight: bolder;
   -webkit-text-stroke: 0.25px black;
   color: rgb(255, 226, 129);
-  
+}
 
+.credit2pexels {
+  font-family: "Quicksand";
+  font-size: large;
+  -webkit-text-stroke: 0.25px black;
+  color: white;
+}
+
+.pexelsLink {
+  -webkit-text-stroke: 0.25px black;
+  color: white;
+  text-decoration: none;
 }
