@@ -56,9 +56,6 @@ $(document).ready(function () {
         "src",
         "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
       );
-      if(searchTerm==""){
-        $
-      }
 
       var card = $("<div>");
       var cardBody = $("<div>");
@@ -78,7 +75,10 @@ $(document).ready(function () {
       $("#today-cast").append(card);
       userPreferences.location.city = searchTerm;
       storePreferences();
-
+      // Removing button for weather information
+      $("button").on("click", function(){
+        $("#today-cast").remove();
+      });
       // Update weatherState string and updateBackground image
       weatherState = data.weather[0].main;
       strSearchTerm = themeState + " " + weatherState;
