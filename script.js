@@ -126,6 +126,8 @@ $(document).ready(function () {
       $("body").css("background-repeat", "no-repeat");
       $("body").css("background-position", "center");
       $("body").css("background-attachment", "fixed");
+      $("body").css("backdrop-filter", "blur(4px)");
+      $("body").css("z-index", "0");
     });
   }
 
