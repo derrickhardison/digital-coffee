@@ -51,7 +51,7 @@
 #### 1. Timer
 ##### - We included the current time feature using moment.js
 ![timer](./images/time.jpg)
-#### 2. Quote and Photo Theme Selector
+#### 2. Quote and Photo Theme Selector, and Weather Search 
 ##### - User can select his or her choices of "Quote Theme," "Photo Theme," and "Weather for A Chosen City."
 ![quote](./images/quote.jpg)
 
