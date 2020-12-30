@@ -56,6 +56,9 @@ $(document).ready(function () {
         "src",
         "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
       );
+      if(searchTerm==""){
+        $
+      }
 
       var card = $("<div>");
       var cardBody = $("<div>");
