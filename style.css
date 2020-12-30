@@ -108,14 +108,14 @@ span {
   color: white;
 }
 
-.credit2pexels {
+.creditDiv {
   font-family: "Quicksand";
   font-size: large;
   -webkit-text-stroke: 0.25px black;
   color: white;
 }
 
-.pexelsLink {
+.creditLink {
   -webkit-text-stroke: 0.25px black;
   color: white;
   text-decoration: none;
