@@ -68,12 +68,12 @@
 ---
 
 ## Installation
-#### - [Clone this repo](https://github.com/ahnlok/project-01.git)
+#### - [Clone this repo](https://github.com/ahnlok/digital-coffee.git)
 #### - Push to GitHub
 #### - Serve main branch via GitHub Pages.
 ---
 ## Usage
-##### View the site at [project-01](https://ahnlok.github.io/project-01/)
+##### View the site at [digital-coffee](https://ahnlok.github.io/digital-coffee/)
 
 ---
 ## Credit
@@ -92,8 +92,8 @@
 ##### Sungpil An: <ansungpil1@gmail.com>
 ---
 ## URL:
-###### GitPage: <https://ahnlok.github.io/project-01/>
-###### GitHub Repository: <https://github.com/ahnlok/project-01>
+###### GitPage: <https://ahnlok.github.io/digital-coffee/>
+###### GitHub Repository: <https://github.com/ahnlok/digital-coffee>
 ---
 
 
