@@ -52,7 +52,7 @@
 ##### - We included the current time feature using moment.js
 ![timer](./images/timer.jpg)
 #### 2. Quote and Photo Theme Selector
-##### - User can select his or her choices of "Quote Theme," "Photo Theme," and "Weather for Chosen City."
+##### - User can select his or her choices of "Quote Theme," "Photo Theme," and "Weather for A Chosen City."
 ![quote](./images/quote.jpg)
 
 ![photo](./images/photo.jpg) 
@@ -61,7 +61,7 @@
 ##### - A user will receive these results according to the selected choices:
 ###### 1. Quote
 ###### 2. Background Image
-###### 3. Weather Information 
+###### 3. Weather Information (Upon clicking "Search Button" second time after you searched for a city's weather, it will "Reset" the input bar and weather information.)
 
 ![quoteresult](./images/resultfinish.jpg) 
 
