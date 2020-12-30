@@ -44,8 +44,8 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (data) {
       //Clearing out previous search after refresh
-
       $("#today-cast").empty();
+     
 
       var title = $("<h3>")
         .addClass("d-inline px-3")
@@ -73,14 +73,15 @@ $(document).ready(function () {
       $("#today-cast").append(card);
       userPreferences.location.city = searchTerm;
       storePreferences();
-      // Removing button for weather information
-      $("button").on("click", function(){
-        $("#today-cast").remove();
-      });
+
       // Update weatherState string and updateBackground image
       weatherState = data.weather[0].main;
       strSearchTerm = themeState + " " + weatherState;
       getPexelsImage(strSearchTerm, intNumImages);
+      // Undo button for weather search
+      $("#undo-button").on("click", function(){
+        $("#today-cast").hide();
+      });
     });
   }
   /**
