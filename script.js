@@ -20,6 +20,7 @@ $(document).ready(function () {
   };
 
   var intNumImages = 30; // How many images to get in ajax call to choose from at random
+  var showTitle = false;
 
   // Generate random strsearchTermArray index
   var weatherState = "calm";
@@ -30,11 +31,8 @@ $(document).ready(function () {
 
   // Current Time & Date using moment.js
 
-  var timeDate = moment().format('dddd, MMMM Do YYYY, h:mm a');
-    $("#date").append(timeDate);
-
-
-
+  var timeDate = moment().format("dddd, MMMM Do YYYY, h:mm a");
+  $("#date").append(timeDate);
 
   // Weather API
   function weatherFunction(searchTerm) {
@@ -102,6 +100,7 @@ $(document).ready(function () {
       searchTerm +
       "&per_page=" +
       numImages;
+    console.log(searchTerm);
     // Actual API call
     $.ajax({
       url: queryURL,
@@ -186,6 +185,7 @@ $(document).ready(function () {
       titleEl.text(
         "Digital Coffee: Your Daily Dose of " + userPreferences.quoteType
       );
+
       getPexelsImage(strSearchTerm, intNumImages);
     }
   }
@@ -205,7 +205,6 @@ $(document).ready(function () {
       case "Taylor Swift Quotes":
         taylorSwiftQuote();
         break;
-
     }
   }
   // function to initialize user preferences from local storage
@@ -262,6 +261,7 @@ $(document).ready(function () {
   // This function appends an element to the body for now due to asynchronous return of .then
   initPreferences();
   renderQuote();
+  $("#title").hide();
   //getPexelsImage(strSearchTerm, intNumImages);
 
   // EVENT LISTENERS
@@ -295,6 +295,16 @@ $(document).ready(function () {
     var searchTerm = $("#weather-search").val();
     $("#weather-search").val("");
     weatherFunction(searchTerm);
+  });
+
+  $("#gear-toggler").on("click", function (event) {
+    if (showTitle) {
+      showTitle = false;
+      $("#title").hide();
+    } else {
+      showTitle = true;
+      $("#title").show();
+    }
   });
 
   // function taylorSwiftQuote() {
