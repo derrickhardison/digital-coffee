@@ -262,13 +262,30 @@ $(document).ready(function () {
     });
   }
 
+  /**
+   * showCredits
+   * Desc: A function appending links to creator pages
+   */
+  function showCredits(){
+    console.log("Credits shown");
+    var creditsDiv = $("<div>").addClass("fixed-bottom creditDiv");
+    
+    var creditFellowsEl = $("<p>").html("Development: <a class=\"creditLink\" href=\"https://github.com/brhestir\" target=\"_blank\">Brian Hestir</a>, <a class=\"creditLink\" href=\"https://github.com/derrickhardison\" target=\"_blank\">Derrick Hardison</a>, <a class=\"creditLink\" href=\"https://github.com/tonyschwebach\" target=\"_blank\">Tony Schwebach</a> and <a class=\"creditLink\" href=\"https://github.com/ahnlok\" target=\"_blank\">Sungpil An</a>").addClass("mt-0 mb-1");
+    var creditPexelsEl  =$("<p>").html("Photos provided by <a class=\"creditLink\" href=\"https://www.pexels.com/\" target=\"_blank\">Pexels</a>").addClass("m-0");    
+    $(creditsDiv).append(creditPexelsEl);
+    $(creditsDiv).append(creditFellowsEl);
+    
+    $("#google-search-bar").append(creditsDiv);
+  };
+    
   // FUNCTION CALLS
 
   // This function appends an element to the body for now due to asynchronous return of .then
   initPreferences();
   renderQuote();
+  showCredits();
   $("#title").hide();
-  //getPexelsImage(strSearchTerm, intNumImages);
+  
 
   // EVENT LISTENERS
 
