@@ -211,6 +211,9 @@ $(document).ready(function () {
       case "Taylor Swift Quotes":
         taylorSwiftQuote();
         break;
+        case "Ron Swanson Quotes":
+          ronSwansonQuote();
+          break;
     }
   }
   // function to initialize user preferences from local storage
@@ -258,6 +261,18 @@ $(document).ready(function () {
     }).then(function (response) {
       author = "Taylor Swift";
       quote = response.quote;
+      renderText();
+    });
+  }
+
+  function ronSwansonQuote() {
+    $.ajax({
+      url: "https://ron-swanson-quotes.herokuapp.com/v2/quotes",
+      method: "GET",
+    }).then(function (response) {
+      author = "Ron Swanson";
+      quote = response[0];
+      // console.log("Ron: " + response);
       renderText();
     });
   }
