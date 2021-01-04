@@ -24,7 +24,7 @@ $(document).ready(function () {
 
   // Generate random strsearchTermArray index
   var weatherState = "calm";
-  var themeState = "morning";
+  var themeState = userPreferences.themeType;
   var strSearchTerm = themeState + " " + weatherState; // pick one string from array, add weatherState string
 
   // FUNCTION DEFINTIONS
@@ -45,7 +45,6 @@ $(document).ready(function () {
     }).then(function (data) {
       //Clearing out previous search after refresh
       $("#today-cast").empty();
-     
 
       var title = $("<h3>")
         .addClass("d-inline px-3")
@@ -79,7 +78,7 @@ $(document).ready(function () {
       strSearchTerm = themeState + " " + weatherState;
       getPexelsImage(strSearchTerm, intNumImages);
       // Undo button for weather search
-      $("#undo-button").on("click", function(){
+      $("#undo-button").on("click", function () {
         $("#today-cast").hide();
       });
     });
@@ -104,7 +103,7 @@ $(document).ready(function () {
       searchTerm +
       "&per_page=" +
       numImages;
-    console.log(searchTerm);
+    
     // Actual API call
     $.ajax({
       url: queryURL,
@@ -142,7 +141,7 @@ $(document).ready(function () {
     }).then(function (response) {
       quote = response.joke;
       author = "Dad Joke";
-      renderText();
+      renderPage();
     });
   }
 
@@ -161,7 +160,7 @@ $(document).ready(function () {
       } else {
         author = "Anonymous";
       }
-      renderText();
+      renderPage();
     });
   }
 
@@ -176,28 +175,28 @@ $(document).ready(function () {
       quote = response.value;
       author = "Chuck Norris Joke";
 
-      renderText();
+      renderPage();
     });
   }
 
   // render quote text on the page based on user preferences
   // if quote is too long, find a new quote
-  function renderText() {
+  function renderPage() {
     if (quote.length > 120) {
-      renderQuote();
+      switchQuoteAPI();
     } else {
       quoteEl.text(quote);
       authorEl.text("- " + author);
       titleEl.text(
         "Digital Coffee: Your Daily Dose of " + userPreferences.quoteType
       );
-
-      getPexelsImage(strSearchTerm, intNumImages);
+      
+      getPexelsImage(userPreferences.themeType, intNumImages);
     }
   }
 
   // switch statement to display quote type based on user preferences/settings
-  function renderQuote() {
+  function switchQuoteAPI() {
     switch (userPreferences.quoteType) {
       case "Dad Jokes":
         dadJoke();
@@ -211,9 +210,9 @@ $(document).ready(function () {
       case "Taylor Swift Quotes":
         taylorSwiftQuote();
         break;
-        case "Ron Swanson Quotes":
-          ronSwansonQuote();
-          break;
+      case "Ron Swanson Quotes":
+        ronSwansonQuote();
+        break;
     }
   }
   // function to initialize user preferences from local storage
@@ -261,7 +260,7 @@ $(document).ready(function () {
     }).then(function (response) {
       author = "Taylor Swift";
       quote = response.quote;
-      renderText();
+      renderPage();
     });
   }
 
@@ -273,7 +272,7 @@ $(document).ready(function () {
       author = "Ron Swanson";
       quote = response[0];
       // console.log("Ron: " + response);
-      renderText();
+      renderPage();
     });
   }
 
@@ -281,26 +280,34 @@ $(document).ready(function () {
    * showCredits
    * Desc: A function appending links to creator pages
    */
-  function showCredits(){
-    console.log("Credits shown");
+  function showCredits() {
+  
     var creditsDiv = $("<div>").addClass("fixed-bottom creditDiv");
-    
-    var creditFellowsEl = $("<p>").html("Development: <a class=\"creditLink\" href=\"https://github.com/brhestir\" target=\"_blank\">Brian Hestir</a>, <a class=\"creditLink\" href=\"https://github.com/derrickhardison\" target=\"_blank\">Derrick Hardison</a>, <a class=\"creditLink\" href=\"https://github.com/tonyschwebach\" target=\"_blank\">Tony Schwebach</a> and <a class=\"creditLink\" href=\"https://github.com/ahnlok\" target=\"_blank\">Sungpil An</a>").addClass("mt-0 mb-1");
-    var creditPexelsEl  =$("<p>").html("Photos provided by <a class=\"creditLink\" href=\"https://www.pexels.com/\" target=\"_blank\">Pexels</a>").addClass("m-0");    
+
+    var creditFellowsEl = $("<p>")
+      .html(
+        'Development: <a class="creditLink" href="https://github.com/brhestir" target="_blank">Brian Hestir</a>, <a class="creditLink" href="https://github.com/derrickhardison" target="_blank">Derrick Hardison</a>, <a class="creditLink" href="https://github.com/tonyschwebach" target="_blank">Tony Schwebach</a> and <a class="creditLink" href="https://github.com/ahnlok" target="_blank">Sungpil An</a>'
+      )
+      .addClass("mt-0 mb-1");
+    var creditPexelsEl = $("<p>")
+      .html(
+        'Photos provided by <a class="creditLink" href="https://www.pexels.com/" target="_blank">Pexels</a>'
+      )
+      .addClass("m-0");
     $(creditsDiv).append(creditPexelsEl);
     $(creditsDiv).append(creditFellowsEl);
-    
+
     $("#google-search-bar").append(creditsDiv);
-  };
-    
+  }
+
   // FUNCTION CALLS
 
   // This function appends an element to the body for now due to asynchronous return of .then
   initPreferences();
-  renderQuote();
+  switchQuoteAPI();
   showCredits();
   $("#title").hide();
-  
+
 
   // EVENT LISTENERS
 
@@ -309,7 +316,7 @@ $(document).ready(function () {
     event.preventDefault();
     userPreferences.quoteType = userInputQuoteTypeEl.val();
     storePreferences();
-    renderQuote();
+    switchQuoteAPI();
   });
 
   // When user changes settings for theme types
@@ -320,7 +327,7 @@ $(document).ready(function () {
     themeState = userInputThemeTypeEl.val();
     strSearchTerm = themeState + " " + weatherState;
     storePreferences();
-    renderQuote();
+    switchQuoteAPI();
   });
 
   // Keyboard event-handler-function eventListener
@@ -345,12 +352,4 @@ $(document).ready(function () {
     }
   });
 
-  // function taylorSwiftQuote() {
-  //   $.ajax({
-  //     url: "https://api.taylor.rest/",
-  //     method: "GET",
-  //   }).then(function (response) {
-  //     console.log("Taylor Swift API: " + response);
-  //   });
-  // }
 });
