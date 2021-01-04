@@ -34,6 +34,7 @@
   - ###### Inspirational quote API (quote): <https://type.fit/api/quotes>
   - ###### Chuck Norris Jokes API (quote): <https://api.chucknorris.io/jokes/random>
   - ###### Taylor Swift Quotes API (quote): <https://api.taylor.rest>
+  - ###### Ron Swanson Quotes API (quote): <https://ron-swanson-quotes.herokuapp.com/v2/quotes>
   ---
 #### Toggler
 #### 1. Here is the Navbar:
