@@ -12,7 +12,7 @@ $(document).ready(function () {
   // JAVASCRIPT VARIABLES
   var quote = "";
   var author = "";
-  var quoteOptions = ["Dad Jokes", "Inspiration"]; // Can we dynamically add these to the drop-down list on the user settings?
+  var quoteOptions = ["Dad Jokes", "Inspiration"];
   var userPreferences = {
     quoteType: "Inspiration",
     themeType: "Morning",
@@ -103,7 +103,6 @@ $(document).ready(function () {
       searchTerm +
       "&per_page=" +
       numImages;
-    
     // Actual API call
     $.ajax({
       url: queryURL,
@@ -170,8 +169,6 @@ $(document).ready(function () {
       url: "https://api.chucknorris.io/jokes/random",
       method: "GET",
     }).then(function (response) {
-      // response = JSON.parse(response);
-
       quote = response.value;
       author = "Chuck Norris Joke";
 
@@ -238,7 +235,6 @@ $(document).ready(function () {
    * Description:  The event containing the key pressed, among other things.
    */
   function keypressHandler(evt) {
-    //console.log(evt.which);
     switch (evt.which) {
       case 126: // tilde "~"" key
         tildeEventHandler();
@@ -271,7 +267,6 @@ $(document).ready(function () {
     }).then(function (response) {
       author = "Ron Swanson";
       quote = response[0];
-      // console.log("Ron: " + response);
       renderPage();
     });
   }
@@ -281,7 +276,6 @@ $(document).ready(function () {
    * Desc: A function appending links to creator pages
    */
   function showCredits() {
-  
     var creditsDiv = $("<div>").addClass("fixed-bottom creditDiv");
 
     var creditFellowsEl = $("<p>")
@@ -308,7 +302,6 @@ $(document).ready(function () {
   showCredits();
   $("#title").hide();
 
-
   // EVENT LISTENERS
 
   // when user changes settings for quote types
@@ -332,7 +325,6 @@ $(document).ready(function () {
 
   // Keyboard event-handler-function eventListener
   $(document).on("keypress", keypressHandler);
-  // console.log("keypress eventHandler registered");
 
   //Function w/ AJAX and Openweather API
   $("#weather-button").on("click", function (event) {
@@ -351,5 +343,4 @@ $(document).ready(function () {
       $("#title").show();
     }
   });
-
 });
