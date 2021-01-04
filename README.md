@@ -101,7 +101,7 @@
 ## License
 ##### &#169; Brian Hestir, Derrick Hardison, Tony Schwebach, and Sungpil An, Georgia Tech Coding Bootcamp
 
-##### Licensed under the [MIT License](LICENSE):
+##### Licensed under the [MIT License](LICENSE.md):
 Copyright (c) [2020] [Brian Hestir, Derrick Hardison, Tony Schwebach, and Sungpil An]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
