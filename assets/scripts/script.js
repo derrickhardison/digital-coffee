@@ -24,7 +24,7 @@ $(document).ready(function () {
 
   // Generate random strsearchTermArray index
   var weatherState = "calm";
-  var themeState = "morning";
+  var themeState = userPreferences.themeType;
   var strSearchTerm = themeState + " " + weatherState; // pick one string from array, add weatherState string
 
   // FUNCTION DEFINTIONS
@@ -140,7 +140,7 @@ $(document).ready(function () {
     }).then(function (response) {
       quote = response.joke;
       author = "Dad Joke";
-      renderText();
+      renderPage();
     });
   }
 
@@ -159,7 +159,7 @@ $(document).ready(function () {
       } else {
         author = "Anonymous";
       }
-      renderText();
+      renderPage();
     });
   }
 
@@ -172,28 +172,28 @@ $(document).ready(function () {
       quote = response.value;
       author = "Chuck Norris Joke";
 
-      renderText();
+      renderPage();
     });
   }
 
   // render quote text on the page based on user preferences
   // if quote is too long, find a new quote
-  function renderText() {
+  function renderPage() {
     if (quote.length > 120) {
-      renderQuote();
+      switchQuoteAPI();
     } else {
       quoteEl.text(quote);
       authorEl.text("- " + author);
       titleEl.text(
         "Digital Coffee: Your Daily Dose of " + userPreferences.quoteType
       );
-
-      getPexelsImage(strSearchTerm, intNumImages);
+      
+      getPexelsImage(userPreferences.themeType, intNumImages);
     }
   }
 
   // switch statement to display quote type based on user preferences/settings
-  function renderQuote() {
+  function switchQuoteAPI() {
     switch (userPreferences.quoteType) {
       case "Dad Jokes":
         dadJoke();
@@ -256,7 +256,7 @@ $(document).ready(function () {
     }).then(function (response) {
       author = "Taylor Swift";
       quote = response.quote;
-      renderText();
+      renderPage();
     });
   }
 
@@ -267,7 +267,7 @@ $(document).ready(function () {
     }).then(function (response) {
       author = "Ron Swanson";
       quote = response[0];
-      renderText();
+      renderPage();
     });
   }
 
@@ -298,7 +298,7 @@ $(document).ready(function () {
 
   // This function appends an element to the body for now due to asynchronous return of .then
   initPreferences();
-  renderQuote();
+  switchQuoteAPI();
   showCredits();
   $("#title").hide();
 
@@ -309,7 +309,7 @@ $(document).ready(function () {
     event.preventDefault();
     userPreferences.quoteType = userInputQuoteTypeEl.val();
     storePreferences();
-    renderQuote();
+    switchQuoteAPI();
   });
 
   // When user changes settings for theme types
@@ -320,7 +320,7 @@ $(document).ready(function () {
     themeState = userInputThemeTypeEl.val();
     strSearchTerm = themeState + " " + weatherState;
     storePreferences();
-    renderQuote();
+    switchQuoteAPI();
   });
 
   // Keyboard event-handler-function eventListener
