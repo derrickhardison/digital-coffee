@@ -12,7 +12,7 @@ $(document).ready(function () {
   // JAVASCRIPT VARIABLES
   var quote = "";
   var author = "";
-  var quoteOptions = ["Dad Jokes", "Inspiration"]; // Can we dynamically add these to the drop-down list on the user settings?
+  var quoteOptions = ["Dad Jokes", "Inspiration"];
   var userPreferences = {
     quoteType: "Inspiration",
     themeType: "Morning",
@@ -45,7 +45,6 @@ $(document).ready(function () {
     }).then(function (data) {
       //Clearing out previous search after refresh
       $("#today-cast").empty();
-     
 
       var title = $("<h3>")
         .addClass("d-inline px-3")
@@ -79,7 +78,7 @@ $(document).ready(function () {
       strSearchTerm = themeState + " " + weatherState;
       getPexelsImage(strSearchTerm, intNumImages);
       // Undo button for weather search
-      $("#undo-button").on("click", function(){
+      $("#undo-button").on("click", function () {
         $("#today-cast").hide();
       });
     });
@@ -104,7 +103,6 @@ $(document).ready(function () {
       searchTerm +
       "&per_page=" +
       numImages;
-    console.log(searchTerm);
     // Actual API call
     $.ajax({
       url: queryURL,
@@ -171,8 +169,6 @@ $(document).ready(function () {
       url: "https://api.chucknorris.io/jokes/random",
       method: "GET",
     }).then(function (response) {
-      // response = JSON.parse(response);
-
       quote = response.value;
       author = "Chuck Norris Joke";
 
@@ -211,9 +207,9 @@ $(document).ready(function () {
       case "Taylor Swift Quotes":
         taylorSwiftQuote();
         break;
-        case "Ron Swanson Quotes":
-          ronSwansonQuote();
-          break;
+      case "Ron Swanson Quotes":
+        ronSwansonQuote();
+        break;
     }
   }
   // function to initialize user preferences from local storage
@@ -239,7 +235,6 @@ $(document).ready(function () {
    * Description:  The event containing the key pressed, among other things.
    */
   function keypressHandler(evt) {
-    //console.log(evt.which);
     switch (evt.which) {
       case 126: // tilde "~"" key
         tildeEventHandler();
@@ -272,7 +267,6 @@ $(document).ready(function () {
     }).then(function (response) {
       author = "Ron Swanson";
       quote = response[0];
-      // console.log("Ron: " + response);
       renderText();
     });
   }
@@ -281,18 +275,25 @@ $(document).ready(function () {
    * showCredits
    * Desc: A function appending links to creator pages
    */
-  function showCredits(){
-    console.log("Credits shown");
+  function showCredits() {
     var creditsDiv = $("<div>").addClass("fixed-bottom creditDiv");
-    
-    var creditFellowsEl = $("<p>").html("Development: <a class=\"creditLink\" href=\"https://github.com/brhestir\" target=\"_blank\">Brian Hestir</a>, <a class=\"creditLink\" href=\"https://github.com/derrickhardison\" target=\"_blank\">Derrick Hardison</a>, <a class=\"creditLink\" href=\"https://github.com/tonyschwebach\" target=\"_blank\">Tony Schwebach</a> and <a class=\"creditLink\" href=\"https://github.com/ahnlok\" target=\"_blank\">Sungpil An</a>").addClass("mt-0 mb-1");
-    var creditPexelsEl  =$("<p>").html("Photos provided by <a class=\"creditLink\" href=\"https://www.pexels.com/\" target=\"_blank\">Pexels</a>").addClass("m-0");    
+
+    var creditFellowsEl = $("<p>")
+      .html(
+        'Development: <a class="creditLink" href="https://github.com/brhestir" target="_blank">Brian Hestir</a>, <a class="creditLink" href="https://github.com/derrickhardison" target="_blank">Derrick Hardison</a>, <a class="creditLink" href="https://github.com/tonyschwebach" target="_blank">Tony Schwebach</a> and <a class="creditLink" href="https://github.com/ahnlok" target="_blank">Sungpil An</a>'
+      )
+      .addClass("mt-0 mb-1");
+    var creditPexelsEl = $("<p>")
+      .html(
+        'Photos provided by <a class="creditLink" href="https://www.pexels.com/" target="_blank">Pexels</a>'
+      )
+      .addClass("m-0");
     $(creditsDiv).append(creditPexelsEl);
     $(creditsDiv).append(creditFellowsEl);
-    
+
     $("#google-search-bar").append(creditsDiv);
-  };
-    
+  }
+
   // FUNCTION CALLS
 
   // This function appends an element to the body for now due to asynchronous return of .then
@@ -300,7 +301,6 @@ $(document).ready(function () {
   renderQuote();
   showCredits();
   $("#title").hide();
-  
 
   // EVENT LISTENERS
 
@@ -325,7 +325,6 @@ $(document).ready(function () {
 
   // Keyboard event-handler-function eventListener
   $(document).on("keypress", keypressHandler);
-  // console.log("keypress eventHandler registered");
 
   //Function w/ AJAX and Openweather API
   $("#weather-button").on("click", function (event) {
@@ -344,13 +343,4 @@ $(document).ready(function () {
       $("#title").show();
     }
   });
-
-  // function taylorSwiftQuote() {
-  //   $.ajax({
-  //     url: "https://api.taylor.rest/",
-  //     method: "GET",
-  //   }).then(function (response) {
-  //     console.log("Taylor Swift API: " + response);
-  //   });
-  // }
 });
