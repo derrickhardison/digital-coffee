@@ -37,33 +37,33 @@
   ---
 #### Toggler
 #### 1. Here is the Navbar:
-![navbar](./images/navbar.jpg)
+![navbar](./assets/images/navbar.jpg)
 #### 2. On the right corner of Navbar, you will see a "gear icon", which is the choice toggler.
-![toggler](./images/toggler.jpg)
+![toggler](./assets/images/toggler.jpg)
 #### 3. Once you click the toggler icon, it will provide you with three different inputs to choose from:
 - ##### 1. Quote Theme
 - ##### 2. Photo Theme
 - ##### 3. Type your city name (To find the current weather for your desired location)
-![selector](./images/selectors.jpg)
+![selector](./assets/images/selectors.jpg)
 
 ---
 #### Highlights
 #### 1. Timer
 ##### - We included the current time feature using moment.js
-![timer](./images/time.jpg)
+![timer](./assets/images/time.jpg)
 #### 2. Quote and Photo Theme Selector, and Weather Search 
 ##### - User can select his or her choices of "Quote Theme," "Photo Theme," and "Weather for A Chosen City."
-![quote](./images/quote.jpg)
+![quote](./assets/images/quote.jpg)
 
-![photo](./images/photo.jpg) 
+![photo](./assets/images/photo.jpg) 
 
-![weather](./images/winput2.jpg) 
+![weather](./assets/images/winput2.jpg) 
 ##### - A user will receive these results according to the selected choices:
 ###### 1. Quote
 ###### 2. Background Image
 ###### 3. Weather Information (After your search, click "Undo" button to refresh)
 
-![quoteresult](./images/result.jpg) 
+![quoteresult](./assets/images/result.jpg) 
 
 ---
 
@@ -88,7 +88,7 @@
 ## Contact
 ##### Brian Hestir: <brhestir@gmail.com>
 ##### Derrick Hardison: <derricklhardison@gmail.com>
-##### Tony Schwebach: <tony.schwebach@gmail.com>
+##### Tony Schwebach: <tony.schwebach.developer@gmail.com>
 ##### Sungpil An: <ansungpil1@gmail.com>
 ---
 ## URL:
