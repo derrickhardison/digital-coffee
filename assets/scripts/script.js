@@ -1,6 +1,6 @@
 ///////////////
 // script.js //
-///////////////
+////////////////
 $(document).ready(function () {
   // DOM VARIABLES
   var titleEl = $("#title");
